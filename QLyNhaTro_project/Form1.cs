@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace QLyNhaTro_project
 {
-    public partial class form1 : Form
+    public partial class txtDienTich : Form
     {
-        public form1()
+        public txtDienTich()
         {
             InitializeComponent();
         }
+
+        
     }
 }

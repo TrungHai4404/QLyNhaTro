@@ -1,0 +1,13 @@
+D:\QLyNhaTro_project\QLyNhaTro.BUS\bin\Debug\QLyNhaTro.BUS.dll.config
+D:\QLyNhaTro_project\QLyNhaTro.BUS\bin\Debug\QLyNhaTro.BUS.dll
+D:\QLyNhaTro_project\QLyNhaTro.BUS\bin\Debug\QLyNhaTro.BUS.pdb
+D:\QLyNhaTro_project\QLyNhaTro.BUS\bin\Debug\QLyNhaTro.DAL.dll
+D:\QLyNhaTro_project\QLyNhaTro.BUS\bin\Debug\EntityFramework.dll
+D:\QLyNhaTro_project\QLyNhaTro.BUS\bin\Debug\QLyNhaTro.DAL.pdb
+D:\QLyNhaTro_project\QLyNhaTro.BUS\bin\Debug\QLyNhaTro.DAL.dll.config
+D:\QLyNhaTro_project\QLyNhaTro.BUS\bin\Debug\EntityFramework.xml
+D:\QLyNhaTro_project\QLyNhaTro.BUS\obj\Debug\QLyNhaTro.BUS.csproj.AssemblyReference.cache
+D:\QLyNhaTro_project\QLyNhaTro.BUS\obj\Debug\QLyNhaTro.BUS.csproj.CoreCompileInputs.cache
+D:\QLyNhaTro_project\QLyNhaTro.BUS\obj\Debug\QLyNhaTr.02807913.Up2Date
+D:\QLyNhaTro_project\QLyNhaTro.BUS\obj\Debug\QLyNhaTro.BUS.dll
+D:\QLyNhaTro_project\QLyNhaTro.BUS\obj\Debug\QLyNhaTro.BUS.pdb

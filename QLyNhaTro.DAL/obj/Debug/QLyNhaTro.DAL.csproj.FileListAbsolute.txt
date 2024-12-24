@@ -1,0 +1,12 @@
+D:\QLyNhaTro_project\QLyNhaTro.DAL\bin\Debug\QLyNhaTro.DAL.dll.config
+D:\QLyNhaTro_project\QLyNhaTro.DAL\bin\Debug\QLyNhaTro.DAL.dll
+D:\QLyNhaTro_project\QLyNhaTro.DAL\bin\Debug\QLyNhaTro.DAL.pdb
+D:\QLyNhaTro_project\QLyNhaTro.DAL\bin\Debug\EntityFramework.dll
+D:\QLyNhaTro_project\QLyNhaTro.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\QLyNhaTro_project\QLyNhaTro.DAL\bin\Debug\EntityFramework.xml
+D:\QLyNhaTro_project\QLyNhaTro.DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\QLyNhaTro_project\QLyNhaTro.DAL\obj\Debug\QLyNhaTro.DAL.csproj.AssemblyReference.cache
+D:\QLyNhaTro_project\QLyNhaTro.DAL\obj\Debug\QLyNhaTro.DAL.csproj.CoreCompileInputs.cache
+D:\QLyNhaTro_project\QLyNhaTro.DAL\obj\Debug\QLyNhaTr.08F43AC0.Up2Date
+D:\QLyNhaTro_project\QLyNhaTro.DAL\obj\Debug\QLyNhaTro.DAL.dll
+D:\QLyNhaTro_project\QLyNhaTro.DAL\obj\Debug\QLyNhaTro.DAL.pdb
