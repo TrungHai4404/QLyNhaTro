@@ -5,18 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|d:\\qlynhatro_project\\qlynhatro_project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|solutionrelative:qlynhatro_project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50B132AB-8DC6-4171-9C5B-41379DCDF816}|QLyNhaTro.DAL\\QLyNhaTro.DAL.csproj|D:\\QLyNhaTro_project\\qlynhatro.dal\\models\\qlynhatromodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50B132AB-8DC6-4171-9C5B-41379DCDF816}|QLyNhaTro.DAL\\QLyNhaTro.DAL.csproj|solutionrelative:qlynhatro.dal\\models\\qlynhatromodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|d:\\qlynhatro_project\\qlynhatro_project\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|solutionrelative:qlynhatro_project\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|d:\\qlynhatro_project\\qlynhatro_project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|solutionrelative:qlynhatro_project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,51 +26,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "form1.Designer.cs",
-              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\form1.Designer.cs",
-              "RelativeDocumentMoniker": "QLyNhaTro_project\\form1.Designer.cs",
-              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\form1.Designer.cs*",
-              "RelativeToolTip": "QLyNhaTro_project\\form1.Designer.cs*",
-              "ViewState": "AgIAAJwAAAAAAAAAAAAMwK0AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T18:51:15.757Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "form1.cs",
-              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\form1.cs",
-              "RelativeDocumentMoniker": "QLyNhaTro_project\\form1.cs",
-              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\form1.cs*",
-              "RelativeToolTip": "QLyNhaTro_project\\form1.cs*",
-              "ViewState": "AgIAAAUAAAAAAAAAAIAwwBMAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T18:14:42.4Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "QLyNhaTroModel.cs",
-              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro.DAL\\Models\\QLyNhaTroModel.cs",
-              "RelativeDocumentMoniker": "QLyNhaTro.DAL\\Models\\QLyNhaTroModel.cs",
-              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro.DAL\\Models\\QLyNhaTroModel.cs",
-              "RelativeToolTip": "QLyNhaTro.DAL\\Models\\QLyNhaTroModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T17:56:43.642Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "form1.cs [Design]",
               "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\form1.cs",
               "RelativeDocumentMoniker": "QLyNhaTro_project\\form1.cs",
-              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\form1.cs [Design]*",
-              "RelativeToolTip": "QLyNhaTro_project\\form1.cs [Design]*",
+              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\form1.cs [Design]",
+              "RelativeToolTip": "QLyNhaTro_project\\form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-24T16:02:21.415Z",
               "EditorCaption": " [Design]"

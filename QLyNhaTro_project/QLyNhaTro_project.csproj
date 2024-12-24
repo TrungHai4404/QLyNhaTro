@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -88,6 +89,24 @@
       <Project>{50b132ab-8dc6-4171-9c5b-41379dcdf816}</Project>
       <Name>QLyNhaTro.DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adduser_4961.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addusergroup_1251.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diagram-06_24511.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calculation_calculator_icon_228393.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-emergency-code-sos_61_icon-icons.com_57216.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_remove_icon_137494.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

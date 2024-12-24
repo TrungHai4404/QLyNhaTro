@@ -15,5 +15,5 @@ D:\QLyNhaTro_project\QLyNhaTro_project\bin\Debug\QLyNhaTro.BUS.dll.config
 D:\QLyNhaTro_project\QLyNhaTro_project\bin\Debug\QLyNhaTro.DAL.pdb
 D:\QLyNhaTro_project\QLyNhaTro_project\bin\Debug\QLyNhaTro.DAL.dll.config
 D:\QLyNhaTro_project\QLyNhaTro_project\bin\Debug\EntityFramework.xml
-D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.form1.resources
 D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTr.DACADA2F.Up2Date
+D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.txtDienTich.resources
