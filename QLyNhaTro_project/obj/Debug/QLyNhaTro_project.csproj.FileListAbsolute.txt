@@ -1,0 +1,9 @@
+D:\QLyNhaTro_project\QLyNhaTro_project\bin\Debug\QLyNhaTro_project.exe.config
+D:\QLyNhaTro_project\QLyNhaTro_project\bin\Debug\QLyNhaTro_project.exe
+D:\QLyNhaTro_project\QLyNhaTro_project\bin\Debug\QLyNhaTro_project.pdb
+D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.csproj.AssemblyReference.cache
+D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.Properties.Resources.resources
+D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.csproj.GenerateResource.cache
+D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.csproj.CoreCompileInputs.cache
+D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.exe
+D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.pdb
