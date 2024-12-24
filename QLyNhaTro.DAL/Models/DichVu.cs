@@ -16,7 +16,8 @@ namespace QLyNhaTro.DAL.Models
         }
 
         [Key]
-        public int MaDichVu { get; set; }
+        [StringLength(20)]
+        public string MaDichVu { get; set; }
 
         [Required]
         [StringLength(100)]

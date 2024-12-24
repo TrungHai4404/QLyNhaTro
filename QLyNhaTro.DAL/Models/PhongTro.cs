@@ -16,13 +16,16 @@ namespace QLyNhaTro.DAL.Models
         }
 
         [Key]
-        public int MaPhong { get; set; }
+        [StringLength(20)]
+        public string MaPhong { get; set; }
 
         [Required]
         [StringLength(50)]
         public string TenPhong { get; set; }
 
-        public int MaLoaiPhong { get; set; }
+        [Required]
+        [StringLength(20)]
+        public string MaLoaiPhong { get; set; }
 
         public decimal GiaThue { get; set; }
 

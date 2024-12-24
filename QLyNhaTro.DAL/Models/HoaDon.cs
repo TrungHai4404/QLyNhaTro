@@ -16,9 +16,12 @@ namespace QLyNhaTro.DAL.Models
         }
 
         [Key]
-        public int MaHoaDon { get; set; }
+        [StringLength(20)]
+        public string MaHoaDon { get; set; }
 
-        public int MaHopDong { get; set; }
+        [Required]
+        [StringLength(20)]
+        public string MaHopDong { get; set; }
 
         [Required]
         [StringLength(10)]

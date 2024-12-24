@@ -16,7 +16,8 @@ namespace QLyNhaTro.DAL.Models
         }
 
         [Key]
-        public int MaKhachThue { get; set; }
+        [StringLength(20)]
+        public string MaKhachThue { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -40,6 +41,12 @@ namespace QLyNhaTro.DAL.Models
 
         [StringLength(200)]
         public string Avatar { get; set; }
+
+        [StringLength(10)]
+        public string GioiTinh { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? NgaySinh { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HopDong> HopDongs { get; set; }

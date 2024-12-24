@@ -11,3 +11,5 @@ D:\QLyNhaTro_project\QLyNhaTro.BUS\obj\Debug\QLyNhaTro.BUS.csproj.CoreCompileInp
 D:\QLyNhaTro_project\QLyNhaTro.BUS\obj\Debug\QLyNhaTr.02807913.Up2Date
 D:\QLyNhaTro_project\QLyNhaTro.BUS\obj\Debug\QLyNhaTro.BUS.dll
 D:\QLyNhaTro_project\QLyNhaTro.BUS\obj\Debug\QLyNhaTro.BUS.pdb
+D:\QLyNhaTro_project\QLyNhaTro.BUS\bin\Debug\EntityFramework.SqlServer.dll
+D:\QLyNhaTro_project\QLyNhaTro.BUS\bin\Debug\EntityFramework.SqlServer.xml

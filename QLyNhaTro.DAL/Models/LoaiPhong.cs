@@ -16,7 +16,8 @@ namespace QLyNhaTro.DAL.Models
         }
 
         [Key]
-        public int MaLoaiPhong { get; set; }
+        [StringLength(20)]
+        public string MaLoaiPhong { get; set; }
 
         [Required]
         [StringLength(50)]

@@ -16,11 +16,16 @@ namespace QLyNhaTro.DAL.Models
         }
 
         [Key]
-        public int MaHopDong { get; set; }
+        [StringLength(20)]
+        public string MaHopDong { get; set; }
 
-        public int MaKhachThue { get; set; }
+        [Required]
+        [StringLength(20)]
+        public string MaKhachThue { get; set; }
 
-        public int MaPhong { get; set; }
+        [Required]
+        [StringLength(20)]
+        public string MaPhong { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime NgayKyHopDong { get; set; }

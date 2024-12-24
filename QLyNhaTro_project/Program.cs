@@ -16,7 +16,7 @@ namespace QLyNhaTro_project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new txtDienTich());
+            Application.Run(new frmTrangChu());
         }
     }
 }

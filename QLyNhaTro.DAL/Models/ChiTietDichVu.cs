@@ -10,11 +10,16 @@ namespace QLyNhaTro.DAL.Models
     public partial class ChiTietDichVu
     {
         [Key]
-        public int MaChiTietDichVu { get; set; }
+        [StringLength(20)]
+        public string MaChiTietDichVu { get; set; }
 
-        public int MaHoaDon { get; set; }
+        [Required]
+        [StringLength(20)]
+        public string MaHoaDon { get; set; }
 
-        public int MaDichVu { get; set; }
+        [Required]
+        [StringLength(20)]
+        public string MaDichVu { get; set; }
 
         public decimal SoLuong { get; set; }
 
