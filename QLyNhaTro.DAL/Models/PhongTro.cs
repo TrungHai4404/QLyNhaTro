@@ -12,7 +12,9 @@ namespace QLyNhaTro.DAL.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PhongTro()
         {
+            ChiTietDichVus = new HashSet<ChiTietDichVu>();
             HopDongs = new HashSet<HopDong>();
+            KhachThues = new HashSet<KhachThue>();
         }
 
         [Key]
@@ -29,6 +31,8 @@ namespace QLyNhaTro.DAL.Models
 
         public decimal GiaThue { get; set; }
 
+        public int SucChua { get; set; }
+
         [StringLength(20)]
         public string TrangThai { get; set; }
 
@@ -36,7 +40,13 @@ namespace QLyNhaTro.DAL.Models
         public string MoTa { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ChiTietDichVu> ChiTietDichVus { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HopDong> HopDongs { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KhachThue> KhachThues { get; set; }
 
         public virtual LoaiPhong LoaiPhong { get; set; }
     }

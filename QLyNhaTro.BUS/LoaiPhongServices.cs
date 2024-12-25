@@ -9,7 +9,7 @@ namespace QLyNhaTro.BUS
 {
     public class LoaiPhongServices
     {
-        QLNTModel db = new QLNTModel();
+        QLNTmodel db = new QLNTmodel();
         public List<LoaiPhong> GetAll()
         {
             return db.LoaiPhongs.ToList();

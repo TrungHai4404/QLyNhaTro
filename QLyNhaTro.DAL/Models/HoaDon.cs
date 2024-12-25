@@ -9,12 +9,6 @@ namespace QLyNhaTro.DAL.Models
     [Table("HoaDon")]
     public partial class HoaDon
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public HoaDon()
-        {
-            ChiTietDichVus = new HashSet<ChiTietDichVu>();
-        }
-
         [Key]
         [StringLength(20)]
         public string MaHoaDon { get; set; }
@@ -25,7 +19,7 @@ namespace QLyNhaTro.DAL.Models
 
         [Required]
         [StringLength(10)]
-        public string ThangNam { get; set; }
+        public string NgayXuatHD { get; set; }
 
         public decimal TienPhong { get; set; }
 
@@ -36,9 +30,6 @@ namespace QLyNhaTro.DAL.Models
 
         [StringLength(20)]
         public string TrangThaiThanhToan { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietDichVu> ChiTietDichVus { get; set; }
 
         public virtual HopDong HopDong { get; set; }
     }

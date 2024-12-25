@@ -19,3 +19,4 @@ D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTr.DACADA2F.Up2Date
 D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.frmTrangChu.resources
 D:\QLyNhaTro_project\QLyNhaTro_project\bin\Debug\EntityFramework.SqlServer.dll
 D:\QLyNhaTro_project\QLyNhaTro_project\bin\Debug\EntityFramework.SqlServer.xml
+D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.frmQLyKhach.resources

@@ -3,32 +3,12 @@
   "WorkspaceRootPath": "D:\\QLyNhaTro_project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A796DA38-C3F9-4B45-AC1B-BEC4A2C89BF8}|QLyNhaTro.BUS\\QLyNhaTro.BUS.csproj|d:\\qlynhatro_project\\qlynhatro.bus\\hopdongservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A796DA38-C3F9-4B45-AC1B-BEC4A2C89BF8}|QLyNhaTro.BUS\\QLyNhaTro.BUS.csproj|solutionrelative:qlynhatro.bus\\hopdongservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|d:\\qlynhatro_project\\qlynhatro_project\\frmqlykhach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|solutionrelative:qlynhatro_project\\frmqlykhach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|d:\\qlynhatro_project\\qlynhatro_project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|solutionrelative:qlynhatro_project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|d:\\qlynhatro_project\\qlynhatro_project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|solutionrelative:qlynhatro_project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A796DA38-C3F9-4B45-AC1B-BEC4A2C89BF8}|QLyNhaTro.BUS\\QLyNhaTro.BUS.csproj|d:\\qlynhatro_project\\qlynhatro.bus\\phongtroservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A796DA38-C3F9-4B45-AC1B-BEC4A2C89BF8}|QLyNhaTro.BUS\\QLyNhaTro.BUS.csproj|solutionrelative:qlynhatro.bus\\phongtroservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A796DA38-C3F9-4B45-AC1B-BEC4A2C89BF8}|QLyNhaTro.BUS\\QLyNhaTro.BUS.csproj|d:\\qlynhatro_project\\qlynhatro.bus\\loaiphongservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A796DA38-C3F9-4B45-AC1B-BEC4A2C89BF8}|QLyNhaTro.BUS\\QLyNhaTro.BUS.csproj|solutionrelative:qlynhatro.bus\\loaiphongservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A796DA38-C3F9-4B45-AC1B-BEC4A2C89BF8}|QLyNhaTro.BUS\\QLyNhaTro.BUS.csproj|d:\\qlynhatro_project\\qlynhatro.bus\\khachhangservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A796DA38-C3F9-4B45-AC1B-BEC4A2C89BF8}|QLyNhaTro.BUS\\QLyNhaTro.BUS.csproj|solutionrelative:qlynhatro.bus\\khachhangservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50B132AB-8DC6-4171-9C5B-41379DCDF816}|QLyNhaTro.DAL\\QLyNhaTro.DAL.csproj|d:\\qlynhatro_project\\qlynhatro.dal\\models\\qlntmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50B132AB-8DC6-4171-9C5B-41379DCDF816}|QLyNhaTro.DAL\\QLyNhaTro.DAL.csproj|solutionrelative:qlynhatro.dal\\models\\qlntmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|d:\\qlynhatro_project\\qlynhatro_project\\frmqlykhach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|solutionrelative:qlynhatro_project\\frmqlykhach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,93 +30,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "QLNTModel.cs",
-              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro.DAL\\Models\\QLNTModel.cs",
-              "RelativeDocumentMoniker": "QLyNhaTro.DAL\\Models\\QLNTModel.cs",
-              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro.DAL\\Models\\QLNTModel.cs",
-              "RelativeToolTip": "QLyNhaTro.DAL\\Models\\QLNTModel.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAA/wAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "frmQLyKhach.cs",
+              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmQLyKhach.cs",
+              "RelativeDocumentMoniker": "QLyNhaTro_project\\frmQLyKhach.cs",
+              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmQLyKhach.cs",
+              "RelativeToolTip": "QLyNhaTro_project\\frmQLyKhach.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAAADYAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T22:21:51.647Z",
+              "WhenOpened": "2024-12-25T17:09:23.834Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "HopDongServices.cs",
-              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro.BUS\\HopDongServices.cs",
-              "RelativeDocumentMoniker": "QLyNhaTro.BUS\\HopDongServices.cs",
-              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro.BUS\\HopDongServices.cs",
-              "RelativeToolTip": "QLyNhaTro.BUS\\HopDongServices.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAqwA4AAABiAAAAAAAAAA==",
+              "Title": "frmQLyKhach.cs [Design]",
+              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmQLyKhach.cs",
+              "RelativeDocumentMoniker": "QLyNhaTro_project\\frmQLyKhach.cs",
+              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmQLyKhach.cs [Design]",
+              "RelativeToolTip": "QLyNhaTro_project\\frmQLyKhach.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T21:59:45.074Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "KhachHangServices.cs",
-              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro.BUS\\KhachHangServices.cs",
-              "RelativeDocumentMoniker": "QLyNhaTro.BUS\\KhachHangServices.cs",
-              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro.BUS\\KhachHangServices.cs",
-              "RelativeToolTip": "QLyNhaTro.BUS\\KhachHangServices.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T21:37:17.259Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "LoaiPhongServices.cs",
-              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro.BUS\\LoaiPhongServices.cs",
-              "RelativeDocumentMoniker": "QLyNhaTro.BUS\\LoaiPhongServices.cs",
-              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro.BUS\\LoaiPhongServices.cs",
-              "RelativeToolTip": "QLyNhaTro.BUS\\LoaiPhongServices.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T20:34:58.994Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PhongTroServices.cs",
-              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro.BUS\\PhongTroServices.cs",
-              "RelativeDocumentMoniker": "QLyNhaTro.BUS\\PhongTroServices.cs",
-              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro.BUS\\PhongTroServices.cs",
-              "RelativeToolTip": "QLyNhaTro.BUS\\PhongTroServices.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T20:26:24.025Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "form1.cs [Design]",
-              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\form1.cs",
-              "RelativeDocumentMoniker": "QLyNhaTro_project\\form1.cs",
-              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\form1.cs [Design]",
-              "RelativeToolTip": "QLyNhaTro_project\\form1.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T16:02:21.415Z",
+              "WhenOpened": "2024-12-25T17:06:25.732Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "form1.cs",
-              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\form1.cs",
-              "RelativeDocumentMoniker": "QLyNhaTro_project\\form1.cs",
-              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\form1.cs",
-              "RelativeToolTip": "QLyNhaTro_project\\form1.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAkwEIAAABpAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T20:28:09.915Z",
-              "EditorCaption": ""
             }
           ]
         }

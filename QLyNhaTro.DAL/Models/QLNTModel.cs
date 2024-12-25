@@ -5,10 +5,10 @@ using System.Linq;
 
 namespace QLyNhaTro.DAL.Models
 {
-    public partial class QLNTModel : DbContext
+    public partial class QLNTmodel : DbContext
     {
-        public QLNTModel()
-            : base("name=QLNTModel1")
+        public QLNTmodel()
+            : base("name=QLNTmodel")
         {
         }
 
@@ -19,6 +19,7 @@ namespace QLyNhaTro.DAL.Models
         public virtual DbSet<KhachThue> KhachThues { get; set; }
         public virtual DbSet<LoaiPhong> LoaiPhongs { get; set; }
         public virtual DbSet<PhongTro> PhongTroes { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -34,11 +35,6 @@ namespace QLyNhaTro.DAL.Models
             modelBuilder.Entity<HoaDon>()
                 .Property(e => e.TongTien)
                 .HasPrecision(19, 2);
-
-            modelBuilder.Entity<HoaDon>()
-                .HasMany(e => e.ChiTietDichVus)
-                .WithRequired(e => e.HoaDon)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<HopDong>()
                 .HasMany(e => e.HoaDons)
@@ -57,6 +53,11 @@ namespace QLyNhaTro.DAL.Models
             modelBuilder.Entity<LoaiPhong>()
                 .HasMany(e => e.PhongTroes)
                 .WithRequired(e => e.LoaiPhong)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<PhongTro>()
+                .HasMany(e => e.ChiTietDichVus)
+                .WithRequired(e => e.PhongTro)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PhongTro>()

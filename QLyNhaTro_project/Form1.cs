@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,7 @@ namespace QLyNhaTro_project
         private readonly PhongTroServices phongTroServices = new PhongTroServices();
         private readonly LoaiPhongServices loaiPhongServices = new LoaiPhongServices();
         private readonly HopDongServices hopDongServices = new HopDongServices();
+        private readonly DichVuServirces dichVuServirces = new DichVuServirces();
         public frmTrangChu()
         {
             InitializeComponent();
@@ -25,18 +27,21 @@ namespace QLyNhaTro_project
 
         private void frmTrangChu_Load(object sender, EventArgs e)
         {
-            DuLieuLoaiPhong(loaiPhongServices.GetAll());
+            DuLieuLoaiPhongThue(loaiPhongServices.GetAll());
             DuLieuLoaiPhongTrong(loaiPhongServices.GetAll());
+            bindGrid(khachHangServices.GetAll());
+            gbThongTinNhaTro();
         }
         // đổ dữ liệu vào group box phòng đã thuê
-        private void DuLieuLoaiPhong(List<LoaiPhong> LoaiPhong)
+        private void DuLieuLoaiPhongThue(List<LoaiPhong> LoaiPhong)
         {
             cmbLoaiPhongThue.DataSource = LoaiPhong;
             cmbLoaiPhongThue.DisplayMember = "TenLoaiPhong";
             cmbLoaiPhongThue.ValueMember = "MaLoaiPhong";
         }
-        private void DuLieuSoPhong(List<PhongTro> SoPhong)
+        private void DuLieuSoPhongThue(List<PhongTro> SoPhong)
         {
+            SoPhong.Insert(0, new PhongTro { MaPhong = "", TenPhong = "Trống" });
             cmbSoPhongThue.DataSource = SoPhong;
             cmbSoPhongThue.DisplayMember = "TenPhong";
             cmbSoPhongThue.ValueMember = "MaPhong";
@@ -62,15 +67,15 @@ namespace QLyNhaTro_project
             LoaiPhong loaiPhong = (LoaiPhong)cmbLoaiPhongThue.SelectedItem;
             if(loaiPhong != null)
             {
-                var listSoPhong = phongTroServices.GetPhongTroByLoaiPhong(loaiPhong.MaLoaiPhong);
-                DuLieuSoPhong(listSoPhong);
-                var std = hopDongServices.LayKhachThueTheoMaPhong(cmbSoPhongThue.SelectedValue.ToString());
-                bindGrid(std);
-
+                var listSoPhong = phongTroServices.LayPhongTroCoKhachThueTheoLoaiPhong(loaiPhong.MaLoaiPhong);
+                DuLieuSoPhongThue(listSoPhong);
             }
         }
-         
-        
+
+        private void cmbSoPhongThue_SelectedIndexChanged(object sender, EventArgs e)
+        { 
+            bindGrid(phongTroServices.LayKhachThueTheoMaPhong(cmbSoPhongThue.SelectedValue.ToString()));
+        }
 
         // Đổ dữ liệu vào combobox Phòng trống
         private void DuLieuLoaiPhongTrong(List<LoaiPhong> LoaiPhong)
@@ -81,6 +86,7 @@ namespace QLyNhaTro_project
         }
         private void DuLieuSoPhongTrong(List<PhongTro> SoPhong)
         {
+            SoPhong.Insert(0, new PhongTro { MaPhong = "", TenPhong = "Trống" });
             cmbSoPhongTrong.DataSource = SoPhong;
             cmbSoPhongTrong.DisplayMember = "TenPhong";
             cmbSoPhongTrong.ValueMember = "MaPhong";
@@ -89,15 +95,72 @@ namespace QLyNhaTro_project
         private void cmbLoaiPhongTrong_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoaiPhong loaiPhong = (LoaiPhong)cmbLoaiPhongTrong.SelectedItem;
-            var trangthai = phongTroServices.PhongTrong();
             if (loaiPhong != null  )
             {
-                var listSoPhong = phongTroServices.GetPhongTroByLoaiPhong(loaiPhong.MaLoaiPhong);
-                var soPhongTrong = phongTroServices.PhongTrong();
-                DuLieuSoPhongTrong(soPhongTrong);
+                var listSoPhong = phongTroServices.LayPhongTroTrongTheoLoaiPhong(loaiPhong.MaLoaiPhong);
+                DuLieuSoPhongTrong(listSoPhong);
+            }
+        }
+        // Đổ dữ liệu vào GroupBox thông tin phòng trống
+        private void ThongTinPhongTrong()
+        {
+            PhongTro phongTro = phongTroServices.LayPhongTroTheoMaPhong(cmbSoPhongTrong.SelectedValue.ToString());
+            if (phongTro != null)
+            {
+                txtMaPhong.Text = phongTro.MaPhong;
+                txtLoaiPhong.Text = phongTro.LoaiPhong.TenLoaiPhong;
+                txtDienTich.Text = phongTro.LoaiPhong.DienTich.ToString();
+                txtGiaTien.Text = phongTro.LoaiPhong.GiaCoBan.ToString();
+            }
+        }
+        private void cmbSoPhongTrong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmbSoPhongTrong.SelectedIndex != 0)
+            {
+                ThongTinPhongTrong();
+            }
+            else
+            {
+                txtMaPhong.Text = "";
+                txtLoaiPhong.Text = "";
+                txtDienTich.Text = "";
+                txtGiaTien.Text = "";
+            }
+            ThongTinPhongTrong();
+        }
+        // button form Quán lý khách thuê
+        private void tsQLKhachThue_Click(object sender, EventArgs e)
+        {
+            frmQLyKhach frm = new frmQLyKhach();
+            frm.ShowDialog();
+        }
+
+        // button Thoát
+        private void tsThoat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
             }
         }
 
-        
+
+        // group box Thông tin nhà trọ
+        private void gbThongTinNhaTro()
+        {
+            txtPhongDaThue.Text = phongTroServices.SoLuongPhongDaThue().ToString();
+            txtSLPhongTrong.Text = phongTroServices.SoLuongPhongTrong().ToString();
+            txtGiaDien.Text = dichVuServirces.TienDien("DV03").ToString();
+            txtGiaNuoc.Text = dichVuServirces.TienNuoc("DV02").ToString();
+            txtGiaInternet.Text = dichVuServirces.TienInternet("DV01").ToString();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            var date = DateTime.Now.ToString("dd/MM/yyyy");
+            var time = DateTime.Now.ToString("hh:mm:ss tt");
+            this.toolStripStatusLabel1.Text = string.Format($"Hôm nay là ngày: {date} - Bây giờ là: {time}" );
+        }
     }
 }

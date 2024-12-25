@@ -9,7 +9,7 @@ namespace QLyNhaTro.BUS
 {
     public class KhachHangServices
     {
-        QLNTModel db = new QLNTModel();
+        QLNTmodel db = new QLNTmodel();
         public List<KhachThue> GetAll()
         {
             return db.KhachThues.ToList();

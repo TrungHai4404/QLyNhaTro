@@ -15,7 +15,7 @@ namespace QLyNhaTro.DAL.Models
 
         [Required]
         [StringLength(20)]
-        public string MaHoaDon { get; set; }
+        public string MaPhong { get; set; }
 
         [Required]
         [StringLength(20)]
@@ -25,6 +25,6 @@ namespace QLyNhaTro.DAL.Models
 
         public virtual DichVu DichVu { get; set; }
 
-        public virtual HoaDon HoaDon { get; set; }
+        public virtual PhongTro PhongTro { get; set; }
     }
 }

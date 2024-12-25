@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,7 +48,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtGiaTien = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtDienTich = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtMaPhong = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -79,6 +80,9 @@
             this.tsTinhTienPhong = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsThoat = new System.Windows.Forms.ToolStripButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSKhachThue)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -87,6 +91,7 @@
             this.groupBox5.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -130,6 +135,7 @@
             this.cmbSoPhongThue.Name = "cmbSoPhongThue";
             this.cmbSoPhongThue.Size = new System.Drawing.Size(159, 24);
             this.cmbSoPhongThue.TabIndex = 0;
+            this.cmbSoPhongThue.SelectedIndexChanged += new System.EventHandler(this.cmbSoPhongThue_SelectedIndexChanged);
             // 
             // cmbLoaiPhongThue
             // 
@@ -227,6 +233,7 @@
             this.cmbSoPhongTrong.Name = "cmbSoPhongTrong";
             this.cmbSoPhongTrong.Size = new System.Drawing.Size(159, 24);
             this.cmbSoPhongTrong.TabIndex = 0;
+            this.cmbSoPhongTrong.SelectedIndexChanged += new System.EventHandler(this.cmbSoPhongTrong_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -252,7 +259,7 @@
             this.groupBox3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox3.Controls.Add(this.txtGiaTien);
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.txtDienTich);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.txtMaPhong);
             this.groupBox3.Controls.Add(this.label9);
@@ -284,14 +291,14 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Giá tiền:";
             // 
-            // textBox2
+            // txtDienTich
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(117, 112);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(141, 22);
-            this.textBox2.TabIndex = 1;
+            this.txtDienTich.Enabled = false;
+            this.txtDienTich.Location = new System.Drawing.Point(117, 112);
+            this.txtDienTich.Name = "txtDienTich";
+            this.txtDienTich.ReadOnly = true;
+            this.txtDienTich.Size = new System.Drawing.Size(141, 22);
+            this.txtDienTich.TabIndex = 1;
             // 
             // label7
             // 
@@ -386,7 +393,7 @@
             // txtGiaInternet
             // 
             this.txtGiaInternet.Enabled = false;
-            this.txtGiaInternet.Location = new System.Drawing.Point(201, 160);
+            this.txtGiaInternet.Location = new System.Drawing.Point(218, 158);
             this.txtGiaInternet.Name = "txtGiaInternet";
             this.txtGiaInternet.ReadOnly = true;
             this.txtGiaInternet.Size = new System.Drawing.Size(115, 22);
@@ -395,7 +402,7 @@
             // txtGiaNuoc
             // 
             this.txtGiaNuoc.Enabled = false;
-            this.txtGiaNuoc.Location = new System.Drawing.Point(201, 132);
+            this.txtGiaNuoc.Location = new System.Drawing.Point(218, 130);
             this.txtGiaNuoc.Name = "txtGiaNuoc";
             this.txtGiaNuoc.ReadOnly = true;
             this.txtGiaNuoc.Size = new System.Drawing.Size(115, 22);
@@ -404,7 +411,7 @@
             // txtGiaDien
             // 
             this.txtGiaDien.Enabled = false;
-            this.txtGiaDien.Location = new System.Drawing.Point(201, 104);
+            this.txtGiaDien.Location = new System.Drawing.Point(218, 96);
             this.txtGiaDien.Name = "txtGiaDien";
             this.txtGiaDien.ReadOnly = true;
             this.txtGiaDien.Size = new System.Drawing.Size(115, 22);
@@ -413,7 +420,7 @@
             // txtSLPhongTrong
             // 
             this.txtSLPhongTrong.Enabled = false;
-            this.txtSLPhongTrong.Location = new System.Drawing.Point(201, 69);
+            this.txtSLPhongTrong.Location = new System.Drawing.Point(218, 61);
             this.txtSLPhongTrong.Name = "txtSLPhongTrong";
             this.txtSLPhongTrong.ReadOnly = true;
             this.txtSLPhongTrong.Size = new System.Drawing.Size(115, 22);
@@ -422,7 +429,7 @@
             // txtPhongDaThue
             // 
             this.txtPhongDaThue.Enabled = false;
-            this.txtPhongDaThue.Location = new System.Drawing.Point(201, 39);
+            this.txtPhongDaThue.Location = new System.Drawing.Point(218, 28);
             this.txtPhongDaThue.Name = "txtPhongDaThue";
             this.txtPhongDaThue.ReadOnly = true;
             this.txtPhongDaThue.Size = new System.Drawing.Size(115, 22);
@@ -432,7 +439,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(6, 39);
+            this.label11.Location = new System.Drawing.Point(6, 30);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(189, 20);
             this.label11.TabIndex = 0;
@@ -462,7 +469,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(6, 104);
+            this.label12.Location = new System.Drawing.Point(6, 98);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 20);
             this.label12.TabIndex = 0;
@@ -472,7 +479,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(6, 69);
+            this.label10.Location = new System.Drawing.Point(6, 63);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(172, 20);
             this.label10.TabIndex = 0;
@@ -497,7 +504,7 @@
             this.hệThốngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thoátToolStripMenuItem});
             this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
-            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(88, 26);
             this.hệThốngToolStripMenuItem.Text = "Hệ Thống";
             // 
             // thoátToolStripMenuItem
@@ -510,13 +517,13 @@
             // chứcNăngToolStripMenuItem
             // 
             this.chứcNăngToolStripMenuItem.Name = "chứcNăngToolStripMenuItem";
-            this.chứcNăngToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
+            this.chứcNăngToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
             this.chứcNăngToolStripMenuItem.Text = "Chức năng";
             // 
             // thốngKêToolStripMenuItem
             // 
             this.thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
-            this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
+            this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(86, 26);
             this.thốngKêToolStripMenuItem.Text = "Thống Kê";
             // 
             // toolStripSeparator1
@@ -553,6 +560,7 @@
             this.tsQLKhachThue.Size = new System.Drawing.Size(99, 61);
             this.tsQLKhachThue.Text = "QL Khách Thuê";
             this.tsQLKhachThue.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsQLKhachThue.Click += new System.EventHandler(this.tsQLKhachThue_Click);
             // 
             // tsQLPhongThue
             // 
@@ -598,6 +606,39 @@
             this.tsThoat.Size = new System.Drawing.Size(45, 61);
             this.tsThoat.Text = "Thoát";
             this.tsThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsThoat.Click += new System.EventHandler(this.tsThoat_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 574);
+            this.statusStrip1.Margin = new System.Windows.Forms.Padding(0, 50, 0, 0);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1097, 23);
+            this.statusStrip1.SizingGrip = false;
+            this.statusStrip1.TabIndex = 7;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BorderStyle = System.Windows.Forms.Border3DStyle.Adjust;
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripStatusLabel1.Margin = new System.Windows.Forms.Padding(0);
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(1082, 23);
+            this.toolStripStatusLabel1.Spring = true;
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // frmTrangChu
             // 
@@ -605,6 +646,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cyan;
             this.ClientSize = new System.Drawing.Size(1097, 597);
+            this.ControlBox = false;
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox3);
@@ -631,6 +674,8 @@
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -651,7 +696,7 @@
         private System.Windows.Forms.ComboBox cmbSoPhongTrong;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbLoaiPhongTrong;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtDienTich;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtLoaiPhong;
         private System.Windows.Forms.Label label6;
@@ -688,6 +733,9 @@
         private System.Windows.Forms.ToolStripButton tsTinhTienPhong;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 
