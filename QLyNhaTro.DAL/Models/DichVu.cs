@@ -12,7 +12,7 @@ namespace QLyNhaTro.DAL.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DichVu()
         {
-            ChiTietDichVus = new HashSet<ChiTietDichVu>();
+            PhongTroes = new HashSet<PhongTro>();
         }
 
         [Key]
@@ -26,6 +26,6 @@ namespace QLyNhaTro.DAL.Models
         public decimal DonGia { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietDichVu> ChiTietDichVus { get; set; }
+        public virtual ICollection<PhongTro> PhongTroes { get; set; }
     }
 }

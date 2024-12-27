@@ -14,7 +14,13 @@ namespace QLyNhaTro.BUS
         {
             return db.LoaiPhongs.ToList();
         }
-        
+        // Kiểm tra loại phòng (0: LP01 - Phòng đơn, 1: LP02 - Phòng đôi)
+        public int KiemTraLoaiPhong(string maLP)
+        {
+            return maLP == "LP01" ? 0 : 1;
+        }
+
+
 
     }
 }

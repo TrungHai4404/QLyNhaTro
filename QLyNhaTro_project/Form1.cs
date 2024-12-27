@@ -18,7 +18,7 @@ namespace QLyNhaTro_project
         private readonly KhachHangServices khachHangServices = new KhachHangServices();
         private readonly PhongTroServices phongTroServices = new PhongTroServices();
         private readonly LoaiPhongServices loaiPhongServices = new LoaiPhongServices();
-        private readonly HopDongServices hopDongServices = new HopDongServices();
+        //private readonly HopDongServices hopDongServices = new HopDongServices();
         private readonly DichVuServirces dichVuServirces = new DichVuServirces();
         public frmTrangChu()
         {
@@ -74,7 +74,7 @@ namespace QLyNhaTro_project
 
         private void cmbSoPhongThue_SelectedIndexChanged(object sender, EventArgs e)
         { 
-            bindGrid(phongTroServices.LayKhachThueTheoMaPhong(cmbSoPhongThue.SelectedValue.ToString()));
+            bindGrid(khachHangServices.LayKhachThueTheoMaPhong(cmbSoPhongThue.SelectedValue.ToString()));
         }
 
         // Đổ dữ liệu vào combobox Phòng trống

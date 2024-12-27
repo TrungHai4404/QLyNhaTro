@@ -3,20 +3,82 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QLyNhaTro.BUS;
+using QLyNhaTro.DAL.Models;
 
 namespace QLyNhaTro_project
 {
     public partial class frmQLyKhach : Form
     {
+        private string avtFilePath = string.Empty;
+        private readonly KhachHangServices khachHangServices = new KhachHangServices();
+        private readonly PhongTroServices phongTroServices = new PhongTroServices();
+        private readonly LoaiPhongServices loaiPhongServices = new LoaiPhongServices();
+        private readonly HopDongServices hopDongServices = new HopDongServices();
+        private readonly HoaDonServices hoaDonServices = new HoaDonServices();
         public frmQLyKhach()
         {
             InitializeComponent();
         }
+        private void frmQLyKhach_Load(object sender, EventArgs e)
+        {
+            DuLieuLoaiPhong(loaiPhongServices.GetAll());
+            clearData();
+        }
+        private void DuLieuLoaiPhong(List<LoaiPhong> LoaiPhong)
+        {
+            cmbLoaiPhong.DataSource = LoaiPhong;
+            cmbLoaiPhong.DisplayMember = "TenLoaiPhong";
+            cmbLoaiPhong.ValueMember = "MaLoaiPhong";
+        }
+        private void DuLieuSoPhong(List<PhongTro> SoPhong)
+        {
+            SoPhong.Insert(0, new PhongTro { MaPhong = "", TenPhong = "Trống" });
+            cmbSoPhong.DataSource = SoPhong;
+            cmbSoPhong.DisplayMember = "TenPhong";
+            cmbSoPhong.ValueMember = "MaPhong";
+        }
 
+        private void cmbLoaiPhong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var loaiPhong = (LoaiPhong)cmbLoaiPhong.SelectedItem;
+            var soPhong = phongTroServices.LayPhongTroTheoLoaiPhong(loaiPhong.MaLoaiPhong);
+            DuLieuSoPhong(soPhong); // Hàm này để load danh sách phòng vào ComboBox
+            
+        }
+        // đổ dữ liệu phòng còn có thể thêm khách hàng vào datagridview
+        private void cmbSoPhong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedSoPhong = cmbSoPhong.SelectedValue?.ToString();
+            var selectedLoaiPhong = cmbLoaiPhong.SelectedValue?.ToString();
+
+            if (!string.IsNullOrEmpty(selectedSoPhong))
+            { 
+                var khachThue = khachHangServices.LayKhachThueTheoMaPhong(selectedSoPhong);
+                bindGrid(khachThue);// Đổ dữ liệu khách thuê vào DataGridView
+            }
+            
+        }
+        public void bindGrid(List<KhachThue> kh)
+        {
+            dgvDSKhachThue.Rows.Clear();
+            foreach (var item in kh)
+            {
+                int index = dgvDSKhachThue.Rows.Add();
+                var phongTro = phongTroServices.LayPhongTroTheoMaPhong(item.MaPhong);
+                dgvDSKhachThue.Rows[index].Cells[0].Value = phongTro?.TenPhong;
+                dgvDSKhachThue.Rows[index].Cells[1].Value = item.MaKhachThue;
+                dgvDSKhachThue.Rows[index].Cells[2].Value = item.HoTen;
+                dgvDSKhachThue.Rows[index].Cells[3].Value = item.CMND_CCCD;
+                dgvDSKhachThue.Rows[index].Cells[4].Value = item.DiaChiThuongTru;
+                dgvDSKhachThue.Rows[index].Cells[5].Value = item.GioiTinh;
+            }
+        }
         private void btnThoat_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -25,7 +87,7 @@ namespace QLyNhaTro_project
                 this.Close();
             }
         }
-        
+
 
         private void gbDanhSachPhongTro_Paint_1(object sender, PaintEventArgs e)
         {
@@ -36,7 +98,7 @@ namespace QLyNhaTro_project
                 Rectangle borderRect = new Rectangle(
                     gbDanhSachPhongTro.ClientRectangle.X,
                     gbDanhSachPhongTro.ClientRectangle.Y, // Dịch xuống vừa đủ để tránh chữ
-                    gbDanhSachPhongTro.ClientRectangle.Width ,
+                    gbDanhSachPhongTro.ClientRectangle.Width,
                     gbDanhSachPhongTro.ClientRectangle.Height
                 );
 
@@ -52,13 +114,240 @@ namespace QLyNhaTro_project
                 // Lấy kích thước của GroupBox
                 Rectangle borderRect = new Rectangle(
                     gbThemKhach.ClientRectangle.X,
-                    gbThemKhach.ClientRectangle.Y, 
+                    gbThemKhach.ClientRectangle.Y,
                     gbThemKhach.ClientRectangle.Width,
                     gbThemKhach.ClientRectangle.Height
                 );
-
                 // Vẽ viền hình chữ nhật (trừ vùng chữ)
                 e.Graphics.DrawRectangle(pen, borderRect);
+            }
+        }
+
+        private void btnLoadImg_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png )|*.jpg; *.jpeg; *.png ";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    avtFilePath = openFileDialog.FileName;
+                    Avatar.Image = Image.FromFile(avtFilePath);
+                }
+            }
+        }
+        private void loadAVT(string maKH)
+        {
+            string folderPath = Path.Combine(Application.StartupPath, "Images");
+            var khachHang = khachHangServices.FindByID(maKH);
+            if (khachHang != null && !string.IsNullOrEmpty(khachHang.Avatar))
+            {
+                string avtFilePath = Path.Combine(folderPath, khachHang.Avatar);
+                if (File.Exists(avtFilePath))
+                {
+                    Avatar.Image = Image.FromFile(avtFilePath);
+                }
+                else
+                {
+                    Avatar.Image = null;
+                }
+            }
+        }
+        private string saveAVT(string sourceFilePath, string maKH)
+        {
+            try
+            {
+                string folderPath = Path.Combine(Application.StartupPath, "Images");
+                Console.WriteLine($"Đường dẫn thư mục images: {folderPath}");
+
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+                string fileExtension = Path.GetExtension(sourceFilePath);
+                string targetFilePath = Path.Combine(folderPath, $"{maKH}{fileExtension}");
+                if (!File.Exists(sourceFilePath))
+                {
+                    throw new FileNotFoundException($"Khong tim thay file: {sourceFilePath}");
+                }
+                File.Copy(sourceFilePath, targetFilePath, true);
+                return $"{maKH}{fileExtension}";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Loi luu avatar: {ex.Message}", "Loi", MessageBoxButtons.OK);
+                return null;
+            }
+        }
+
+
+        // Viết chức năng thêm khách thuê và thêm hợp đồng trong chức năng này
+        private void btnThemKhachThue_Click(object sender, EventArgs e)
+        {
+            var selectedSoPhong = cmbSoPhong.SelectedValue?.ToString();
+            var selectedLoaiPhong = cmbLoaiPhong.SelectedValue?.ToString();
+
+            if (string.IsNullOrEmpty(selectedSoPhong) || string.IsNullOrEmpty(selectedLoaiPhong))
+            {
+                MessageBox.Show("Vui lòng chọn phòng trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtCMND.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (ngaySinh.Value > DateTime.Now)
+            {
+                MessageBox.Show("Ngày sinh không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            int demKT = khachHangServices.DemSLKhach(selectedSoPhong); // Đếm số lượng khách thuê trong phòng
+            int loaiPhong = loaiPhongServices.KiemTraLoaiPhong(selectedLoaiPhong); // Kiểm tra loại phòng (LP01 hoặc LP02)
+
+            // Kiểm tra điều kiện sức chứa
+            if ((loaiPhong == 0 && demKT < 2) || (loaiPhong == 1 && demKT < 3))
+            {
+                // Tạo khách thuê mới
+                var khachThue = new KhachThue
+                {
+                    MaKhachThue = khachHangServices.TaoMaKhachThue(),
+                    HoTen = txtHoTen.Text,
+                    CMND_CCCD = txtCMND.Text,
+                    DiaChiThuongTru = txtDiaChi.Text,
+                    SDT = txtSDT.Text,
+                    NgayBatDauThue = ngayThue.Value,
+                    GioiTinh = radNam.Checked ? "Nam" : "Nữ",
+                    NgaySinh = ngaySinh.Value,
+                    Avatar = saveAVT(avtFilePath, khachHangServices.TaoMaKhachThue()),
+                    MaPhong = selectedSoPhong
+                };
+                khachHangServices.ThemKhachThue(khachThue);
+                //tạo hợp đồng theo khách thuê
+                var hopDong = new HopDong
+                {
+                    MaHopDong = hopDongServices.TaoMaHopDong(),
+                    MaPhong = khachThue.MaPhong,
+                    MaKhachThue = khachThue.MaKhachThue,
+                    NgayKyHopDong = khachThue.NgayBatDauThue,
+                    NgayKetThuc = khachThue.NgayBatDauThue?.AddMonths(6), // Ngày kết thúc hợp đồng sau 6 tháng
+                    TinhTrang = "Đang hiệu lực"
+                };
+                hopDongServices.ThemHopDong(hopDong);
+                //Cap nhat tinh trang phong
+                phongTroServices.CapNhatTinhTrangPhong(selectedSoPhong, "Đang thuê");
+                MessageBox.Show("Thêm khách thuê thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var khachThueMoi = khachHangServices.LayKhachThueTheoMaPhong(selectedSoPhong);
+                bindGrid(khachThueMoi);
+                clearData();
+                avtFilePath = string.Empty;
+            }
+            else
+            {
+                MessageBox.Show("Phòng này đã đủ người. Vui lòng chọn phòng khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
+        }
+        // Sự kiện khi click vào 1 dòng trong DataGridView
+        private void dgvDSKhachThue_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var maKH = dgvDSKhachThue.Rows[e.RowIndex].Cells[1].Value.ToString();
+                var khachHang = khachHangServices.FindByID(maKH);
+                if (khachHang != null)
+                {
+                    txtHoTen.Text = khachHang.HoTen;
+                    txtCMND.Text = khachHang.CMND_CCCD;
+                    txtDiaChi.Text = khachHang.DiaChiThuongTru;
+                    txtSDT.Text = khachHang.SDT;
+                    ngaySinh.Value = khachHang.NgaySinh ?? DateTime.Now;
+                    radNam.Checked = khachHang.GioiTinh == "Nam";
+                    radNu.Checked = khachHang.GioiTinh == "Nữ";
+                    loadAVT(maKH);
+                }
+            }
+        }
+
+
+        //Hàm Thêm Hợp đồng
+
+        private void clearData()
+        {
+            cmbSoPhong.SelectedValue = 0;
+            txtCMND.Text = "";
+            txtDiaChi.Text = "";
+            radNam.Checked = true;
+            ngaySinh.Value = DateTime.Now;
+            Avatar.Image = null;
+            avtFilePath = string.Empty;
+            ngayThue.Value = DateTime.Now;
+        }
+
+        // viết hàm cập nhật khách thuê và hop đồng
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (dgvDSKhachThue.SelectedRows.Count > 0)
+            {
+                var selectedRow = dgvDSKhachThue.SelectedRows[0];
+                var maKH = selectedRow.Cells[1].Value.ToString();
+                var khachHang = khachHangServices.FindByID(maKH);
+                if (khachHang != null)
+                {
+                    khachHang.HoTen = txtHoTen.Text;
+                    khachHang.CMND_CCCD = txtCMND.Text;
+                    khachHang.DiaChiThuongTru = txtDiaChi.Text;
+                    khachHang.SDT = txtSDT.Text;
+                    khachHang.NgaySinh = ngaySinh.Value;
+                    khachHang.NgayBatDauThue = ngayThue.Value;
+                    khachHang.NgaySinh = ngaySinh.Value;
+                    khachHang.GioiTinh = radNam.Checked ? "Nam" : "Nữ";
+
+                    // Kiem tra file co duoc chon k
+                    if (!string.IsNullOrEmpty(avtFilePath))
+                    {
+                        string avtFileName = saveAVT(avtFilePath, maKH);
+                        if (!string.IsNullOrEmpty(avtFileName))
+                        {
+                            khachHang.Avatar = avtFileName;
+                        }
+                    }
+
+                    khachHangServices.CapNhatKhachThue(khachHang);
+
+                    var hopDong = hopDongServices.FindByID(khachHang.MaKhachThue);
+                    hopDongServices.CapNhatHopDong(hopDong.MaHopDong, khachHang.NgayBatDauThue);
+
+                    MessageBox.Show("Cập nhật thông tin khách thuê thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    var khachThueMoi = khachHangServices.LayKhachThueTheoMaPhong(khachHang.MaPhong);
+                    bindGrid(khachThueMoi);
+                    clearData();
+                }
+            }
+        }
+        // Viết sự kiện xóa khách thuê
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            var selectedSoPhong = cmbSoPhong.SelectedValue?.ToString();
+            if (dgvDSKhachThue.SelectedRows.Count > 0)
+            {
+                var maKH = dgvDSKhachThue.SelectedRows[0].Cells[1].Value.ToString();
+                hoaDonServices.XoaHoaDon(hopDongServices.FindByID(maKH).MaHopDong);
+                hopDongServices.XoaHopDong(maKH);
+                khachHangServices.XoaKhachThue(maKH);
+                var kiemTraPhong = phongTroServices.KiemTraPhongConKhachThueKhong(selectedSoPhong);
+                if (kiemTraPhong == 0)
+                {
+                    phongTroServices.CapNhatTinhTrangPhong(selectedSoPhong, "Trống");
+                }
+                bindGrid(khachHangServices.LayKhachThueTheoMaPhong(selectedSoPhong));
+                clearData();
+                MessageBox.Show("Xóa khách thuê thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn khách thuê cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

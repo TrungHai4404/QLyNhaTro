@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DichVuServirces.cs" />
+    <Compile Include="HoaDonServices.cs" />
     <Compile Include="HopDongServices.cs" />
     <Compile Include="KhachHangServices.cs" />
     <Compile Include="LoaiPhongServices.cs" />

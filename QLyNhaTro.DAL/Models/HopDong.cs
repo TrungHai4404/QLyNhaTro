@@ -28,7 +28,7 @@ namespace QLyNhaTro.DAL.Models
         public string MaPhong { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime NgayKyHopDong { get; set; }
+        public DateTime? NgayKyHopDong { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? NgayKetThuc { get; set; }

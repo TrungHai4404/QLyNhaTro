@@ -19,7 +19,7 @@ namespace QLyNhaTro.DAL.Models
 
         [Required]
         [StringLength(10)]
-        public string NgayXuatHD { get; set; }
+        public string ThangNam { get; set; }
 
         public decimal TienPhong { get; set; }
 
