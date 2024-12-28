@@ -45,7 +45,6 @@
             this.radNu = new System.Windows.Forms.RadioButton();
             this.radNam = new System.Windows.Forms.RadioButton();
             this.btnLoadImg = new System.Windows.Forms.Button();
-            this.Avatar = new System.Windows.Forms.PictureBox();
             this.ngayThue = new System.Windows.Forms.DateTimePicker();
             this.ngaySinh = new System.Windows.Forms.DateTimePicker();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
@@ -66,12 +65,13 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.Avatar = new System.Windows.Forms.PictureBox();
             this.gbDanhSachPhongTro.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSKhachThue)).BeginInit();
             this.gbThemKhach.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Avatar)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // gbDanhSachPhongTro
@@ -156,6 +156,7 @@
             this.dgvDSKhachThue.Location = new System.Drawing.Point(6, 21);
             this.dgvDSKhachThue.Name = "dgvDSKhachThue";
             this.dgvDSKhachThue.ReadOnly = true;
+            this.dgvDSKhachThue.RowHeadersVisible = false;
             this.dgvDSKhachThue.RowHeadersWidth = 51;
             this.dgvDSKhachThue.RowTemplate.Height = 24;
             this.dgvDSKhachThue.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -265,16 +266,6 @@
             this.btnLoadImg.Text = "Chọn ảnh";
             this.btnLoadImg.UseVisualStyleBackColor = true;
             this.btnLoadImg.Click += new System.EventHandler(this.btnLoadImg_Click);
-            // 
-            // Avatar
-            // 
-            this.Avatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Avatar.Location = new System.Drawing.Point(272, 113);
-            this.Avatar.Name = "Avatar";
-            this.Avatar.Size = new System.Drawing.Size(135, 135);
-            this.Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Avatar.TabIndex = 3;
-            this.Avatar.TabStop = false;
             // 
             // ngayThue
             // 
@@ -456,22 +447,33 @@
             // 
             // toolStrip1
             // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.toolStrip1.BackColor = System.Drawing.Color.DarkGray;
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(966, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(966, 31);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripLabel1
             // 
+            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(198, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(290, 28);
             this.toolStripLabel1.Text = "Quản lý thông tin khách thuê";
+            // 
+            // Avatar
+            // 
+            this.Avatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Avatar.Location = new System.Drawing.Point(272, 113);
+            this.Avatar.Name = "Avatar";
+            this.Avatar.Size = new System.Drawing.Size(135, 135);
+            this.Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Avatar.TabIndex = 3;
+            this.Avatar.TabStop = false;
             // 
             // frmQLyKhach
             // 
@@ -488,7 +490,7 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.gbDanhSachPhongTro);
             this.Name = "frmQLyKhach";
-            this.Text = "frmQLyKhach";
+            this.Text = "Quản lý khách thuê";
             this.Load += new System.EventHandler(this.frmQLyKhach_Load);
             this.gbDanhSachPhongTro.ResumeLayout(false);
             this.gbDanhSachPhongTro.PerformLayout();
@@ -496,9 +498,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSKhachThue)).EndInit();
             this.gbThemKhach.ResumeLayout(false);
             this.gbThemKhach.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Avatar)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Avatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

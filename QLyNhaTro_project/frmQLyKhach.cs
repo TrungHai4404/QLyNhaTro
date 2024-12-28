@@ -15,12 +15,14 @@ namespace QLyNhaTro_project
 {
     public partial class frmQLyKhach : Form
     {
+        public event Action DataUpdate; 
         private string avtFilePath = string.Empty;
         private readonly KhachHangServices khachHangServices = new KhachHangServices();
         private readonly PhongTroServices phongTroServices = new PhongTroServices();
         private readonly LoaiPhongServices loaiPhongServices = new LoaiPhongServices();
         private readonly HopDongServices hopDongServices = new HopDongServices();
         private readonly HoaDonServices hoaDonServices = new HoaDonServices();
+
         public frmQLyKhach()
         {
             InitializeComponent();
@@ -240,6 +242,7 @@ namespace QLyNhaTro_project
                 MessageBox.Show("Thêm khách thuê thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 var khachThueMoi = khachHangServices.LayKhachThueTheoMaPhong(selectedSoPhong);
                 bindGrid(khachThueMoi);
+                DataUpdate?.Invoke();
                 clearData();
                 avtFilePath = string.Empty;
             }
@@ -269,9 +272,6 @@ namespace QLyNhaTro_project
                 }
             }
         }
-
-
-        //Hàm Thêm Hợp đồng
 
         private void clearData()
         {
@@ -322,6 +322,7 @@ namespace QLyNhaTro_project
                     MessageBox.Show("Cập nhật thông tin khách thuê thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     var khachThueMoi = khachHangServices.LayKhachThueTheoMaPhong(khachHang.MaPhong);
                     bindGrid(khachThueMoi);
+                    DataUpdate?.Invoke();
                     clearData();
                 }
             }
@@ -342,6 +343,7 @@ namespace QLyNhaTro_project
                     phongTroServices.CapNhatTinhTrangPhong(selectedSoPhong, "Trống");
                 }
                 bindGrid(khachHangServices.LayKhachThueTheoMaPhong(selectedSoPhong));
+                DataUpdate?.Invoke();
                 clearData();
                 MessageBox.Show("Xóa khách thuê thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

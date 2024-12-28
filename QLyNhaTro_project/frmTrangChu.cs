@@ -31,7 +31,19 @@ namespace QLyNhaTro_project
             DuLieuLoaiPhongTrong(loaiPhongServices.GetAll());
             bindGrid(khachHangServices.GetAll());
             gbThongTinNhaTro();
+
         }
+         private void formUpdate()
+        {
+            DuLieuLoaiPhongThue(loaiPhongServices.GetAll());
+            DuLieuLoaiPhongTrong(loaiPhongServices.GetAll());
+            bindGrid(khachHangServices.GetAll());
+            gbThongTinNhaTro();
+        }
+
+
+
+
         // đổ dữ liệu vào group box phòng đã thuê
         private void DuLieuLoaiPhongThue(List<LoaiPhong> LoaiPhong)
         {
@@ -132,6 +144,7 @@ namespace QLyNhaTro_project
         private void tsQLKhachThue_Click(object sender, EventArgs e)
         {
             frmQLyKhach frm = new frmQLyKhach();
+            frm.DataUpdate += formUpdate;
             frm.ShowDialog();
         }
 
@@ -151,9 +164,9 @@ namespace QLyNhaTro_project
         {
             txtPhongDaThue.Text = phongTroServices.SoLuongPhongDaThue().ToString();
             txtSLPhongTrong.Text = phongTroServices.SoLuongPhongTrong().ToString();
-            txtGiaDien.Text = dichVuServirces.TienDien("DV03").ToString();
-            txtGiaNuoc.Text = dichVuServirces.TienNuoc("DV02").ToString();
-            txtGiaInternet.Text = dichVuServirces.TienInternet("DV01").ToString();
+            txtGiaDien.Text = dichVuServirces.GiaTienDichVu("DV03").ToString();
+            txtGiaNuoc.Text = dichVuServirces.GiaTienDichVu("DV02").ToString();
+            txtGiaInternet.Text = dichVuServirces.GiaTienDichVu("DV01").ToString();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -161,6 +174,12 @@ namespace QLyNhaTro_project
             var date = DateTime.Now.ToString("dd/MM/yyyy");
             var time = DateTime.Now.ToString("hh:mm:ss tt");
             this.toolStripStatusLabel1.Text = string.Format($"Hôm nay là ngày: {date} - Bây giờ là: {time}" );
+        }
+
+        private void quảnLýHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmQLyHoaDon frm = new frmQLyHoaDon();
+            frm.ShowDialog();
         }
     }
 }

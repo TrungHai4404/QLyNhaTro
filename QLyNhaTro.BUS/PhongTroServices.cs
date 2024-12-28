@@ -23,7 +23,7 @@ namespace QLyNhaTro.BUS
         //Lấy số phòng có khách thuê theo mã loại phòng
         public List<PhongTro> LayPhongTroCoKhachThueTheoLoaiPhong(string id)
         {
-            return db.PhongTroes.Where(x => x.MaLoaiPhong == id && x.TrangThai.Contains("Đang Thuê")).ToList();
+            return db.PhongTroes.Where(x => x.MaLoaiPhong == id && x.TrangThai.Contains("ang")).ToList();
         }
         // Lấy số phòng trống theo mã loại phòng
         public List<PhongTro> LayPhongTroTrongTheoLoaiPhong(string id)
@@ -74,6 +74,21 @@ namespace QLyNhaTro.BUS
         public List<PhongTro> LayPhongTroTheoLoaiPhong(string loaiPhong)
         {
             return db.PhongTroes.Where(x => x.MaLoaiPhong == loaiPhong).ToList();
+        }
+        // Lấy số lượng khách thuê theo mã phòng
+        public int DemSoLuongKhachThueTheoMaPhong(string maPhong)
+        {
+            return db.KhachThues.Count(x => x.MaPhong == maPhong);
+        }
+        // Lấy mã hợp đồng theo mã phòng
+        public string LayMaHopDongTheoMaPhong(string maPhong)
+        {
+            var hopDong = db.HopDongs.FirstOrDefault(x => x.MaPhong == maPhong);
+            if (hopDong != null)
+            {
+                return hopDong.MaHopDong;
+            }
+            return null;
         }
     }
 }

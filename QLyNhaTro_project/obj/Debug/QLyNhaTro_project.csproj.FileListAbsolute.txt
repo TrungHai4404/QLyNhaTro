@@ -20,3 +20,6 @@ D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.frmTrangChu.r
 D:\QLyNhaTro_project\QLyNhaTro_project\bin\Debug\EntityFramework.SqlServer.dll
 D:\QLyNhaTro_project\QLyNhaTro_project\bin\Debug\EntityFramework.SqlServer.xml
 D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.frmQLyKhach.resources
+D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.frmQLyHoaDon.resources
+D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.frmTaoHoaDon.resources
+D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.frmXuatHoaDon.resources
