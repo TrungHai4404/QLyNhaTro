@@ -26,6 +26,7 @@ namespace QLyNhaTro.BUS
         {
             return db.KhachThues.Where(x => x.MaPhong == id).ToList();
         }
+        
         // Đếm số lượng khách thuê trong một phòng
         public int DemSLKhach(string maPhong)
         {
@@ -89,8 +90,13 @@ namespace QLyNhaTro.BUS
 
         public void XoaKhachThue(string maKH)
         {
-            db.KhachThues.Remove(db.KhachThues.FirstOrDefault(x => x.MaKhachThue == maKH));
-            db.SaveChanges();
+            var khachThue = db.KhachThues.FirstOrDefault(x => x.MaKhachThue == maKH);
+            if (khachThue != null)
+            {
+                db.KhachThues.Remove(khachThue);
+                db.SaveChanges();
+            }
+            
         }
     }
 }

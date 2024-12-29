@@ -202,5 +202,15 @@ namespace QLyNhaTro_project
             frm.updateData += formUpdate;
             frm.ShowDialog();
         }
+
+        private void quảnLýPhòngTrọToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tsQLPhongThue_Click(sender, e);
+        }
+
+        private void quảnLýKháchThuêToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tsQLKhachThue_Click(sender, e);
+        }
     }
 }

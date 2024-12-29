@@ -276,7 +276,9 @@ namespace QLyNhaTro_project
         private void clearData()
         {
             cmbSoPhong.SelectedValue = 0;
+            txtHoTen.Text = "";
             txtCMND.Text = "";
+            txtSDT.Text = "";
             txtDiaChi.Text = "";
             radNam.Checked = true;
             ngaySinh.Value = DateTime.Now;
@@ -358,6 +360,11 @@ namespace QLyNhaTro_project
             var date = DateTime.Now.ToString("dd/MM/yyyy");
             var time = DateTime.Now.ToString("hh:mm:ss tt");
             this.toolStripStatusLabel1.Text = string.Format($"Hôm nay là ngày: {date} - Bây giờ là: {time}");
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            clearData();
         }
     }
 }

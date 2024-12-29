@@ -74,19 +74,19 @@
             this.quảnLýKháchThuêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýPhòngTrọToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýHóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tìmKiếmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tìmKiếmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsQLKhachThue = new System.Windows.Forms.ToolStripButton();
             this.tsQLPhongThue = new System.Windows.Forms.ToolStripButton();
             this.tsTraPhong = new System.Windows.Forms.ToolStripButton();
             this.tsTinhTienPhong = new System.Windows.Forms.ToolStripButton();
             this.tsSuaGiaDV = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsThoat = new System.Windows.Forms.ToolStripButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSKhachThue)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -526,7 +526,7 @@
             this.thoátToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
             this.thoátToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.thoátToolStripMenuItem.Text = "Thoát";
             // 
             // chứcNăngToolStripMenuItem
@@ -546,6 +546,7 @@
             this.quảnLýKháchThuêToolStripMenuItem.Name = "quảnLýKháchThuêToolStripMenuItem";
             this.quảnLýKháchThuêToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.quảnLýKháchThuêToolStripMenuItem.Text = "Quản lý khách thuê";
+            this.quảnLýKháchThuêToolStripMenuItem.Click += new System.EventHandler(this.quảnLýKháchThuêToolStripMenuItem_Click);
             // 
             // quảnLýPhòngTrọToolStripMenuItem
             // 
@@ -553,6 +554,7 @@
             this.quảnLýPhòngTrọToolStripMenuItem.Name = "quảnLýPhòngTrọToolStripMenuItem";
             this.quảnLýPhòngTrọToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.quảnLýPhòngTrọToolStripMenuItem.Text = "Quản lý phòng trọ";
+            this.quảnLýPhòngTrọToolStripMenuItem.Click += new System.EventHandler(this.quảnLýPhòngTrọToolStripMenuItem_Click);
             // 
             // quảnLýHóaĐơnToolStripMenuItem
             // 
@@ -561,6 +563,13 @@
             this.quảnLýHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.quảnLýHóaĐơnToolStripMenuItem.Text = "Quản lý hóa đơn";
             this.quảnLýHóaĐơnToolStripMenuItem.Click += new System.EventHandler(this.quảnLýHóaĐơnToolStripMenuItem_Click);
+            // 
+            // tìmKiếmToolStripMenuItem
+            // 
+            this.tìmKiếmToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tìmKiếmToolStripMenuItem.Name = "tìmKiếmToolStripMenuItem";
+            this.tìmKiếmToolStripMenuItem.Size = new System.Drawing.Size(116, 32);
+            this.tìmKiếmToolStripMenuItem.Text = "Tìm Kiếm";
             // 
             // toolStripSeparator1
             // 
@@ -587,50 +596,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(1097, 64);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 64);
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 574);
-            this.statusStrip1.Margin = new System.Windows.Forms.Padding(0, 50, 0, 0);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1097, 23);
-            this.statusStrip1.SizingGrip = false;
-            this.statusStrip1.TabIndex = 7;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.BorderStyle = System.Windows.Forms.Border3DStyle.Adjust;
-            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.toolStripStatusLabel1.Margin = new System.Windows.Forms.Padding(0);
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(1082, 23);
-            this.toolStripStatusLabel1.Spring = true;
-            this.toolStripStatusLabel1.Text = "Loading...";
-            // 
-            // tìmKiếmToolStripMenuItem
-            // 
-            this.tìmKiếmToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tìmKiếmToolStripMenuItem.Name = "tìmKiếmToolStripMenuItem";
-            this.tìmKiếmToolStripMenuItem.Size = new System.Drawing.Size(116, 32);
-            this.tìmKiếmToolStripMenuItem.Text = "Tìm Kiếm";
             // 
             // tsQLKhachThue
             // 
@@ -687,6 +652,11 @@
             this.tsSuaGiaDV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsSuaGiaDV.Click += new System.EventHandler(this.tsSuaGiaDV_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 64);
+            // 
             // tsThoat
             // 
             this.tsThoat.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -697,6 +667,38 @@
             this.tsThoat.Text = "Thoát";
             this.tsThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsThoat.Click += new System.EventHandler(this.tsThoat_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 574);
+            this.statusStrip1.Margin = new System.Windows.Forms.Padding(0, 50, 0, 0);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1097, 23);
+            this.statusStrip1.SizingGrip = false;
+            this.statusStrip1.TabIndex = 7;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BorderStyle = System.Windows.Forms.Border3DStyle.Adjust;
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripStatusLabel1.Margin = new System.Windows.Forms.Padding(0);
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(1082, 23);
+            this.toolStripStatusLabel1.Spring = true;
+            this.toolStripStatusLabel1.Text = "Loading...";
             // 
             // frmTrangChu
             // 

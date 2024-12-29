@@ -70,6 +70,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnLamMoi = new System.Windows.Forms.Button();
             this.gbDanhSachPhongTro.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSKhachThue)).BeginInit();
@@ -214,6 +215,7 @@
             // gbThemKhach
             // 
             this.gbThemKhach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gbThemKhach.Controls.Add(this.btnLamMoi);
             this.gbThemKhach.Controls.Add(this.radNu);
             this.gbThemKhach.Controls.Add(this.radNam);
             this.gbThemKhach.Controls.Add(this.btnLoadImg);
@@ -512,6 +514,18 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnLamMoi
+            // 
+            this.btnLamMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnLamMoi.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLamMoi.Location = new System.Drawing.Point(436, 255);
+            this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.Size = new System.Drawing.Size(101, 23);
+            this.btnLamMoi.TabIndex = 6;
+            this.btnLamMoi.Text = "Làm mới";
+            this.btnLamMoi.UseVisualStyleBackColor = false;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
+            // 
             // frmQLyKhach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -589,5 +603,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnLamMoi;
     }
 }

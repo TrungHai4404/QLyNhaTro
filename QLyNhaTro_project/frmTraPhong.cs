@@ -83,26 +83,35 @@ namespace QLyNhaTro_project
             else
             {
                 var maPhong = cmbSoPhong.SelectedValue.ToString();
-                var hopDong = hopDongServices.FindByMaPhong(maPhong);
+                var hopDong = hopDongServices.FindByMaPhong(maPhong); // Tìm hợp đồng theo mã phòng
+                var listKhachThue = khachHangServices.LayKhachThueTheoMaPhong(maPhong); // Lấy danh sách khách thuê theo mã phòng
                 if (hopDong != null)
                 {
-                    var khachThue = khachHangServices.FindByID(hopDong.MaKhachThue);
-                    if (khachThue != null)
+                    foreach (var item in hopDong)
                     {
-                        var dsHoaDon = hoaDonServices.LayDSHoaDonTheoMaHopDong(hopDong.MaHopDong);
-                        foreach(var item in dsHoaDon)
+                        var dsHoaDon = hoaDonServices.LayDSHoaDonTheoMaHopDong(item.MaHopDong); // Lấy danh sách hóa đơn theo mã hợp đồng
+                        if (dsHoaDon != null)
                         {
-                            hoaDonServices.XoaHoaDon(hopDong.MaHopDong);
+                            foreach (var hd in dsHoaDon)
+                            {
+                                hoaDonServices.XoaHoaDon(hd.MaHopDong);
+                            }
                         }
-                        hopDongServices.XoaHopDong(hopDong.MaKhachThue);
-                        khachHangServices.XoaKhachThue(khachThue.MaKhachThue);
+                        if (listKhachThue != null)
+                        {
+                            foreach (var khachThue in listKhachThue)
+                            {
+                                hopDongServices.XoaHopDong(khachThue.MaKhachThue);
+                                khachHangServices.XoaKhachThue(khachThue.MaKhachThue);
+                            }
+                        }
+                        phongTroServices.CapNhatTinhTrangPhong(maPhong, "Trống");
+                        updateData?.Invoke();
+                        MessageBox.Show("Trả phòng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        frmTraPhong_Load(sender, e);
                     }
-                    phongTroServices.CapNhatTinhTrangPhong(maPhong, "Trống");
                 }
-                updateData?.Invoke();
-                MessageBox.Show("Trả phòng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                frmTraPhong_Load(sender, e);
-            }    
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)

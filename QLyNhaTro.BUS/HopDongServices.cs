@@ -21,9 +21,9 @@ namespace QLyNhaTro.BUS
             return db.HopDongs.FirstOrDefault(x => x.MaKhachThue == maKH);
         }
         // Tìm Hợp đồng theo mã phong
-        public HopDong FindByMaPhong(string maPhong)
+        public List<HopDong> FindByMaPhong(string maPhong)
         {
-            return db.HopDongs.FirstOrDefault(x => x.MaPhong == maPhong);
+            return db.HopDongs.Where(x => x.MaPhong == maPhong).ToList();
         }
         // Hàm tạo mã hợp đông
         public string TaoMaHopDong()
@@ -84,8 +84,13 @@ namespace QLyNhaTro.BUS
         }
         public void XoaHopDong(string maKH)
         {
-            db.HopDongs.Remove(db.HopDongs.FirstOrDefault(x => x.MaKhachThue == maKH));
-            db.SaveChanges();
+            var hopDong = db.HopDongs.FirstOrDefault(x => x.MaKhachThue == maKH);
+            if (hopDong != null)
+            {
+                db.HopDongs.Remove(hopDong);
+                db.SaveChanges();
+            }
+            
         }
     }
 }
