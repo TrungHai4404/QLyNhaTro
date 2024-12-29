@@ -14,6 +14,12 @@ namespace QLyNhaTro.BUS
         {
             return db.LoaiPhongs.ToList();
         }
+        // Thêm loại phòng
+        public void ThemLoaiPhong(LoaiPhong loaiPhong)
+        {
+            db.LoaiPhongs.Add(loaiPhong);
+            db.SaveChanges();
+        }
         // Kiểm tra loại phòng (0: LP01 - Phòng đơn, 1: LP02 - Phòng đôi)
         public int KiemTraLoaiPhong(string maLP)
         {

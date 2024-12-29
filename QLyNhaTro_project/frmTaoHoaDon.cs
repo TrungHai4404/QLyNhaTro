@@ -205,5 +205,90 @@ namespace QLyNhaTro_project
 
             }
         }
+
+        private void btnXuatHoaDon_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTongTien.Text))
+            {
+                MessageBox.Show("Vui lòng tính tiền trước khi xuất hóa đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var giaPhong = loaiPhongServices.LayGiaPhongTheoMaLoaiPhong(cmbLoaiPhong.SelectedValue.ToString());
+            var giaDien = dichVuServirces.GiaTienDichVu("DV03");
+            var giaNuoc = dichVuServirces.GiaTienDichVu("DV02");
+            var giaInternet = dichVuServirces.GiaTienDichVu("DV01");
+            var giaVeSinh = dichVuServirces.GiaTienDichVu("DV04");
+            var giaBaoTri = dichVuServirces.GiaTienDichVu("DV05");
+            var soDienCu = int.Parse(txtSoDienCu.Text);
+            var soDienMoi = int.Parse(txtSoDienMoi.Text);
+            var soNuocCu = int.Parse(txtKhoiNuocCu.Text);
+            var soNuocMoi = int.Parse(txtKhoiNuocMoi.Text);
+            var tienDien = (soDienMoi - soDienCu) * giaDien;
+            var tienNuoc = (soNuocMoi - soNuocCu) * giaNuoc;
+            var tienDichVu = tienDien + tienNuoc + giaInternet + giaVeSinh + giaBaoTri;
+            var tongTien = giaPhong + tienDien + tienNuoc + giaInternet + giaVeSinh + giaBaoTri;
+
+            // tạo hóa đơn
+            HoaDon hoaDon = new HoaDon
+            {
+                MaHoaDon = txtMaHD.Text,
+                MaHopDong = phongTroServices.LayMaHopDongTheoMaPhong(cmbSoPhong.SelectedValue.ToString()),
+                ThangNam = DateTime.Now.ToString("MM/yyyy"),
+                TienPhong = giaPhong,
+                TienDichVu = tienDichVu,
+                TrangThaiThanhToan = "Chưa thanh toán",
+            };
+
+            hoaDonServices.ThemHoaDon(hoaDon);
+
+            rptHoaDon rpt = new rptHoaDon();
+            rpt = TruyenDuLieuHoaDon(rpt);
+
+            frmXuatHoaDon frm = new frmXuatHoaDon(rpt);
+            frm.ShowDialog();
+        }
+
+        internal rptHoaDon TruyenDuLieuHoaDon(rptHoaDon rpt)
+        {
+            rpt.maHD = txtMaHD.Text;
+            rpt.maPhong = txtMaPhong.Text;
+            rpt.maHopDong = txtMaHopDong.Text;
+            rpt.giaDien = txtGiaDien.Text;
+            rpt.giaNuoc = txtGiaNuoc.Text;
+            rpt.giaInternet = txtInternet.Text;
+            rpt.giaVeSinh = txtVeSinh.Text;
+            rpt.giaBaoTri = txtBaoTri.Text;
+            rpt.tienPhong = txtTienPhong.Text;
+            rpt.tienDien = txtTienDien.Text;
+            rpt.soDienCu = txtSoDienCu.Text;
+            rpt.soDienMoi = txtSoDienMoi.Text;
+            rpt.tienNuoc = txtTienNuoc.Text;
+            rpt.soNuocCu = txtKhoiNuocCu.Text;
+            rpt.soNuocMoi = txtKhoiNuocMoi.Text;
+            rpt.tienIntenet = txtTienInternet.Text;
+            rpt.tienVeSinh = txtTienVeSinh.Text;
+            rpt.tienBaoTri = txtTienBaoTri.Text;
+            rpt.thanhTienPhong = txtThanhTienPhong.Text;
+            rpt.thanhTienDien = txtThanhTienDien.Text;
+            rpt.thanhTienNuoc = txtThanhTienNuoc.Text;
+            rpt.thanhTienInternet = txtThanhInternet.Text;
+            rpt.thanhTienVeSinh = txtThanhTienVeSinh.Text;
+            rpt.thanhTienBaoTri = txtThanhTienBaoTri.Text;
+            rpt.tongTien = txtTongTien.Text;
+            return rpt;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            var date = DateTime.Now.ToString("dd/MM/yyyy");
+            var time = DateTime.Now.ToString("hh:mm:ss tt");
+            this.toolStripStatusLabel1.Text = string.Format($"Hôm nay là ngày: {date} - Bây giờ là: {time}");
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

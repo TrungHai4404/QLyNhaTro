@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.components = new System.ComponentModel.Container();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -39,7 +39,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
             this.panelTinhTien = new System.Windows.Forms.Panel();
+            this.btnTinhTien = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -54,6 +58,7 @@
             this.txtThanhInternet = new System.Windows.Forms.TextBox();
             this.txtThanhTienNuoc = new System.Windows.Forms.TextBox();
             this.txtThanhTienDien = new System.Windows.Forms.TextBox();
+            this.txtKhoiNuocMoi = new System.Windows.Forms.TextBox();
             this.txtKhoiNuocCu = new System.Windows.Forms.TextBox();
             this.txtSoDienMoi = new System.Windows.Forms.TextBox();
             this.txtSoDienCu = new System.Windows.Forms.TextBox();
@@ -100,11 +105,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btnXuatHoaDon = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
-            this.btnTinhTien = new System.Windows.Forms.Button();
-            this.txtKhoiNuocMoi = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -114,6 +117,7 @@
             this.groupBox2.SuspendLayout();
             this.groupBoxThongTinPhong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachThue)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -150,7 +154,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(596, 101);
+            this.panel1.Size = new System.Drawing.Size(596, 110);
             this.panel1.TabIndex = 2;
             // 
             // cmbLoaiPhong
@@ -256,6 +260,18 @@
             this.panelTinhTien.Size = new System.Drawing.Size(550, 298);
             this.panelTinhTien.TabIndex = 2;
             // 
+            // btnTinhTien
+            // 
+            this.btnTinhTien.BackColor = System.Drawing.Color.Yellow;
+            this.btnTinhTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTinhTien.Location = new System.Drawing.Point(32, 273);
+            this.btnTinhTien.Name = "btnTinhTien";
+            this.btnTinhTien.Size = new System.Drawing.Size(115, 23);
+            this.btnTinhTien.TabIndex = 2;
+            this.btnTinhTien.Text = "Tính tiền";
+            this.btnTinhTien.UseVisualStyleBackColor = false;
+            this.btnTinhTien.Click += new System.EventHandler(this.btnTinhTien_Click);
+            // 
             // label23
             // 
             this.label23.AutoSize = true;
@@ -265,6 +281,36 @@
             this.label23.Size = new System.Drawing.Size(87, 20);
             this.label23.TabIndex = 0;
             this.label23.Text = "Tổng tiền";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(262, 88);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(56, 18);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Số mới";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(262, 138);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(56, 18);
+            this.label30.TabIndex = 0;
+            this.label30.Text = "Số mới";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(127, 86);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(47, 18);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Số cũ";
             // 
             // label21
             // 
@@ -399,6 +445,14 @@
             this.txtThanhTienDien.Name = "txtThanhTienDien";
             this.txtThanhTienDien.Size = new System.Drawing.Size(110, 22);
             this.txtThanhTienDien.TabIndex = 1;
+            // 
+            // txtKhoiNuocMoi
+            // 
+            this.txtKhoiNuocMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKhoiNuocMoi.Location = new System.Drawing.Point(324, 137);
+            this.txtKhoiNuocMoi.Name = "txtKhoiNuocMoi";
+            this.txtKhoiNuocMoi.Size = new System.Drawing.Size(38, 22);
+            this.txtKhoiNuocMoi.TabIndex = 1;
             // 
             // txtKhoiNuocCu
             // 
@@ -841,6 +895,7 @@
             this.btnXuatHoaDon.TabIndex = 7;
             this.btnXuatHoaDon.Text = "Xuất Hóa Đơn";
             this.btnXuatHoaDon.UseVisualStyleBackColor = false;
+            this.btnXuatHoaDon.Click += new System.EventHandler(this.btnXuatHoaDon_Click);
             // 
             // btnThoat
             // 
@@ -854,62 +909,46 @@
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // btnTinhTien
+            // statusStrip1
             // 
-            this.btnTinhTien.BackColor = System.Drawing.Color.Yellow;
-            this.btnTinhTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTinhTien.Location = new System.Drawing.Point(32, 273);
-            this.btnTinhTien.Name = "btnTinhTien";
-            this.btnTinhTien.Size = new System.Drawing.Size(115, 23);
-            this.btnTinhTien.TabIndex = 2;
-            this.btnTinhTien.Text = "Tính tiền";
-            this.btnTinhTien.UseVisualStyleBackColor = false;
-            this.btnTinhTien.Click += new System.EventHandler(this.btnTinhTien_Click);
+            this.statusStrip1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 567);
+            this.statusStrip1.Margin = new System.Windows.Forms.Padding(0, 50, 0, 0);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1197, 24);
+            this.statusStrip1.SizingGrip = false;
+            this.statusStrip1.TabIndex = 8;
+            this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
             // 
-            // txtKhoiNuocMoi
+            // toolStripStatusLabel1
             // 
-            this.txtKhoiNuocMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKhoiNuocMoi.Location = new System.Drawing.Point(324, 137);
-            this.txtKhoiNuocMoi.Name = "txtKhoiNuocMoi";
-            this.txtKhoiNuocMoi.Size = new System.Drawing.Size(38, 22);
-            this.txtKhoiNuocMoi.TabIndex = 1;
+            this.toolStripStatusLabel1.BorderStyle = System.Windows.Forms.Border3DStyle.Adjust;
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripStatusLabel1.Margin = new System.Windows.Forms.Padding(0);
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(1143, 24);
+            this.toolStripStatusLabel1.Spring = true;
+            this.toolStripStatusLabel1.Text = "Loading...";
             // 
-            // label30
+            // timer1
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(262, 138);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(56, 18);
-            this.label30.TabIndex = 0;
-            this.label30.Text = "Số mới";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(127, 86);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(47, 18);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Số cũ";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(262, 88);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(56, 18);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "Số mới";
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmTaoHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1197, 582);
+            this.ClientSize = new System.Drawing.Size(1197, 591);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnXuatHoaDon);
             this.Controls.Add(this.label9);
@@ -940,13 +979,14 @@
             this.groupBoxThongTinPhong.ResumeLayout(false);
             this.groupBoxThongTinPhong.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachThue)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStrip toolStrip1;
@@ -1023,5 +1063,8 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtKhoiNuocMoi;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

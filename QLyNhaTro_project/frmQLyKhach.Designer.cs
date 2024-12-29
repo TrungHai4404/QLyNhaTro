@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gbDanhSachPhongTro = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,6 +46,7 @@
             this.radNu = new System.Windows.Forms.RadioButton();
             this.radNam = new System.Windows.Forms.RadioButton();
             this.btnLoadImg = new System.Windows.Forms.Button();
+            this.Avatar = new System.Windows.Forms.PictureBox();
             this.ngayThue = new System.Windows.Forms.DateTimePicker();
             this.ngaySinh = new System.Windows.Forms.DateTimePicker();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
@@ -65,13 +67,16 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.Avatar = new System.Windows.Forms.PictureBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.gbDanhSachPhongTro.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSKhachThue)).BeginInit();
             this.gbThemKhach.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Avatar)).BeginInit();
+            this.toolStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbDanhSachPhongTro
@@ -266,6 +271,16 @@
             this.btnLoadImg.Text = "Chọn ảnh";
             this.btnLoadImg.UseVisualStyleBackColor = true;
             this.btnLoadImg.Click += new System.EventHandler(this.btnLoadImg_Click);
+            // 
+            // Avatar
+            // 
+            this.Avatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Avatar.Location = new System.Drawing.Point(272, 113);
+            this.Avatar.Name = "Avatar";
+            this.Avatar.Size = new System.Drawing.Size(135, 135);
+            this.Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Avatar.TabIndex = 3;
+            this.Avatar.TabStop = false;
             // 
             // ngayThue
             // 
@@ -465,22 +480,45 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(290, 28);
             this.toolStripLabel1.Text = "Quản lý thông tin khách thuê";
             // 
-            // Avatar
+            // statusStrip1
             // 
-            this.Avatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Avatar.Location = new System.Drawing.Point(272, 113);
-            this.Avatar.Name = "Avatar";
-            this.Avatar.Size = new System.Drawing.Size(135, 135);
-            this.Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Avatar.TabIndex = 3;
-            this.Avatar.TabStop = false;
+            this.statusStrip1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 591);
+            this.statusStrip1.Margin = new System.Windows.Forms.Padding(0, 50, 0, 0);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(966, 23);
+            this.statusStrip1.SizingGrip = false;
+            this.statusStrip1.TabIndex = 8;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BorderStyle = System.Windows.Forms.Border3DStyle.Adjust;
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStripStatusLabel1.Margin = new System.Windows.Forms.Padding(0);
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(951, 23);
+            this.toolStripStatusLabel1.Spring = true;
+            this.toolStripStatusLabel1.Text = "Loading...";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmQLyKhach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(966, 597);
+            this.ClientSize = new System.Drawing.Size(966, 614);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnXoa);
@@ -498,9 +536,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSKhachThue)).EndInit();
             this.gbThemKhach.ResumeLayout(false);
             this.gbThemKhach.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Avatar)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Avatar)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -546,5 +586,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gioiTinh;
         private System.Windows.Forms.RadioButton radNu;
         private System.Windows.Forms.RadioButton radNam;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

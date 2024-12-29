@@ -113,6 +113,16 @@ namespace QLyNhaTro_project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap services_icon_148509 {
+            get {
+                object obj = ResourceManager.GetObject("services_icon_148509", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sign_emergency_code_sos_61_icon_icons_com_57216 {
             get {
                 object obj = ResourceManager.GetObject("sign-emergency-code-sos_61_icon-icons.com_57216", resourceCulture);

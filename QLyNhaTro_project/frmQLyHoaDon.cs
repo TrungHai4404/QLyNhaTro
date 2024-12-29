@@ -22,17 +22,7 @@ namespace QLyNhaTro_project
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
-            if (dgvHoaDon.SelectedRows.Count > 0)
-            {
-                foreach (DataGridViewRow row in dgvHoaDon.SelectedRows)
-                {
-                    if (row.Cells[6].Value.ToString() == "Đã thanh toán")
-                    {
-                        hoaDonServices.XoaHoaDonDaThanhToan("Đã thanh toán");
-                    }
-                }
-                bindGrid(hoaDonServices.GetAllHoaDon());
-            }
+            bindGrid(hoaDonServices.GetAllHoaDon());
         }
 
         private void frmQLyHoaDon_Load(object sender, EventArgs e)
@@ -65,6 +55,45 @@ namespace QLyNhaTro_project
         {
             frmTaoHoaDon frm = new frmTaoHoaDon();
             frm.ShowDialog();
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+            if (dgvHoaDon.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvHoaDon.SelectedRows)
+                {
+                    if (row.Cells[6].Value.ToString() == "Chưa thanh toán")
+                    {
+                        //row.Cells[6].Value = "Đã thanh toán";
+                        var maHoaDon = row.Cells[0].Value.ToString();
+                        var hoaDon = hoaDonServices.LayHoaDonTheoMaHoaDon(maHoaDon);
+                        
+                        hoaDonServices.CapNhatHoaDon(hoaDon);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hóa đơn đã được thanh toán, không thể cập nhật", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                bindGrid(hoaDonServices.GetAllHoaDon());
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            var date = DateTime.Now.ToString("dd/MM/yyyy");
+            var time = DateTime.Now.ToString("hh:mm:ss tt");
+            this.toolStripStatusLabel1.Text = string.Format($"Hôm nay là ngày: {date} - Bây giờ là: {time}");
         }
     }
 }

@@ -90,5 +90,58 @@ namespace QLyNhaTro.BUS
             }
             return null;
         }
+        // Viết hàm tạo mã phòng tự động theo cấu trúc Pxx trong đó xx là số thứ tự
+        public string TaoMaPhong()
+        {
+            // Lấy danh sách các mã phòng hiện có từ cơ sở dữ liệu
+            var dsMaPhong = db.PhongTroes.Select(x => x.MaPhong).ToList();
+
+            // Kiểm tra nếu chưa có mã nào thì trả về mã đầu tiên
+            if (dsMaPhong == null || dsMaPhong.Count == 0)
+            {
+                return "P01";
+            }
+
+            // Lọc và lấy phần số từ danh sách mã phòng
+            var danhSachSoThuTu = dsMaPhong
+                .Where(ma => ma.StartsWith("P")) // Chỉ lấy các mã bắt đầu bằng "P"
+                .Select(ma =>
+                {
+                    // Cắt bỏ tiền tố "P" để lấy phần số
+                    if (int.TryParse(ma.Substring(1), out int so))
+                    {
+                        return so;
+                    }
+                    return 0; // Nếu không parse được, mặc định là 0
+                })
+                .OrderBy(so => so) // Sắp xếp danh sách theo thứ tự tăng dần
+                .ToList();
+
+            // Tìm số thứ tự nhỏ nhất còn thiếu
+            int soThuTuMoi = 1; // Bắt đầu từ 1
+            foreach (var so in danhSachSoThuTu)
+            {
+                if (soThuTuMoi < so) // Nếu tìm thấy khoảng trống
+                {
+                    break;
+                }
+                soThuTuMoi++;
+            }
+
+            // Tạo mã phòng mới (đảm bảo định dạng 2 chữ số)
+            return "P" + soThuTuMoi.ToString("D2");
+        }
+        // Thêm phòng trọ   
+        public void ThemPhongTro(PhongTro phongTro)
+        {
+            db.PhongTroes.Add(phongTro);
+            db.SaveChanges();
+        }
+
+        public void XoaPhongTro(string maPhong)
+        {
+            db.PhongTroes.Remove(db.PhongTroes.FirstOrDefault(x => x.MaPhong == maPhong));
+            db.SaveChanges();
+        }
     }
 }

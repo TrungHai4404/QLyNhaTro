@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,12 @@ namespace QLyNhaTro.BUS
         {
             return db.HoaDons.FirstOrDefault(x => x.MaHopDong == maHD);
         }
+        // lấy hóa đơn theo mã hóa đơn
+        public HoaDon LayHoaDonTheoMaHoaDon(string maHD)
+        {
+            return db.HoaDons.FirstOrDefault(x => x.MaHoaDon == maHD);
+        }
+
         // lấy danh sách hóa đơn
         public List<HoaDon> GetAllHoaDon()
         {
@@ -23,6 +30,27 @@ namespace QLyNhaTro.BUS
         public List<string> LayDanhSachMaHoaDon()
         {
             return db.HoaDons.Select(x => x.MaHoaDon).ToList();
+        }
+        //Thêm hóa đơn
+        public void ThemHoaDon(HoaDon hd)
+        {
+            db.HoaDons.Add(hd);
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (var validationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Console.WriteLine($"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
+                    }
+                }
+                throw;
+            }
+            db.SaveChanges();
         }
         // Xóa hóa đơn có trạng thái là Đã thanh toán
         public void XoaHoaDonDaThanhToan(string trangThai)
@@ -88,6 +116,17 @@ namespace QLyNhaTro.BUS
                 db.HoaDons.Remove(hd);
                 db.SaveChanges();
             }
+        }
+        //Lấy danh sách hóa đơn theo mã hợp đồng
+        public List<HoaDon> LayDSHoaDonTheoMaHopDong(string maHopDong)
+        {
+            return db.HoaDons.Where(x => x.MaHopDong == maHopDong).ToList();
+        }
+        
+        public void CapNhatHoaDon(HoaDon hoaDon)
+        {
+            hoaDon.TrangThaiThanhToan = "Đã thanh toán";
+            db.SaveChanges();
         }
     }
 }

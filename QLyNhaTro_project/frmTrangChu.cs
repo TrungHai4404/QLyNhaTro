@@ -33,17 +33,18 @@ namespace QLyNhaTro_project
             gbThongTinNhaTro();
 
         }
-         private void formUpdate()
+        // Hiển thị thời gian
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            DuLieuLoaiPhongThue(loaiPhongServices.GetAll());
-            DuLieuLoaiPhongTrong(loaiPhongServices.GetAll());
-            bindGrid(khachHangServices.GetAll());
-            gbThongTinNhaTro();
+            var date = DateTime.Now.ToString("dd/MM/yyyy");
+            var time = DateTime.Now.ToString("hh:mm:ss tt");
+            this.toolStripStatusLabel1.Text = string.Format($"Hôm nay là ngày: {date} - Bây giờ là: {time}");
         }
-
-
-
-
+        //Cap nhat Du lieu
+        private void formUpdate()
+        {
+            frmTrangChu_Load(this, EventArgs.Empty); // Corrected line
+        }
         // đổ dữ liệu vào group box phòng đã thuê
         private void DuLieuLoaiPhongThue(List<LoaiPhong> LoaiPhong)
         {
@@ -58,20 +59,7 @@ namespace QLyNhaTro_project
             cmbSoPhongThue.DisplayMember = "TenPhong";
             cmbSoPhongThue.ValueMember = "MaPhong";
         }
-        // Đổ dữ liệu vào datagridview
-        public void bindGrid(List<KhachThue> kh)
-        {
-            dgvDSKhachThue.Rows.Clear();
-            foreach(var item in kh)
-            {
-                int index = dgvDSKhachThue.Rows.Add();
-                dgvDSKhachThue.Rows[index].Cells[0].Value = item.MaKhachThue;
-                dgvDSKhachThue.Rows[index].Cells[1].Value = item.HoTen;
-                dgvDSKhachThue.Rows[index].Cells[2].Value = item.CMND_CCCD;
-                dgvDSKhachThue.Rows[index].Cells[3].Value = item.DiaChiThuongTru;
-                dgvDSKhachThue.Rows[index].Cells[4].Value = item.NgayBatDauThue;
-            }
-        }
+        
         // Dữ liệu số phòng được chọn theo loại phòng
 
         private void cmbLoaiPhongThue_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,6 +101,20 @@ namespace QLyNhaTro_project
                 DuLieuSoPhongTrong(listSoPhong);
             }
         }
+        // Đổ dữ liệu vào datagridview
+        public void bindGrid(List<KhachThue> kh)
+        {
+            dgvDSKhachThue.Rows.Clear();
+            foreach (var item in kh)
+            {
+                int index = dgvDSKhachThue.Rows.Add();
+                dgvDSKhachThue.Rows[index].Cells[0].Value = item.MaKhachThue;
+                dgvDSKhachThue.Rows[index].Cells[1].Value = item.HoTen;
+                dgvDSKhachThue.Rows[index].Cells[2].Value = item.CMND_CCCD;
+                dgvDSKhachThue.Rows[index].Cells[3].Value = item.DiaChiThuongTru;
+                dgvDSKhachThue.Rows[index].Cells[4].Value = item.NgayBatDauThue;
+            }
+        }
         // Đổ dữ liệu vào GroupBox thông tin phòng trống
         private void ThongTinPhongTrong()
         {
@@ -140,25 +142,6 @@ namespace QLyNhaTro_project
             }
             ThongTinPhongTrong();
         }
-        // button form Quán lý khách thuê
-        private void tsQLKhachThue_Click(object sender, EventArgs e)
-        {
-            frmQLyKhach frm = new frmQLyKhach();
-            frm.DataUpdate += formUpdate;
-            frm.ShowDialog();
-        }
-
-        // button Thoát
-        private void tsThoat_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
-
-
         // group box Thông tin nhà trọ
         private void gbThongTinNhaTro()
         {
@@ -169,16 +152,54 @@ namespace QLyNhaTro_project
             txtGiaInternet.Text = dichVuServirces.GiaTienDichVu("DV01").ToString();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            var date = DateTime.Now.ToString("dd/MM/yyyy");
-            var time = DateTime.Now.ToString("hh:mm:ss tt");
-            this.toolStripStatusLabel1.Text = string.Format($"Hôm nay là ngày: {date} - Bây giờ là: {time}" );
-        }
+        
 
         private void quảnLýHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQLyHoaDon frm = new frmQLyHoaDon();
+            frm.ShowDialog();
+        }
+        // button Thoát
+        private void tsThoat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+        // button form Quản lý phòng trọ
+        private void tsQLPhongThue_Click(object sender, EventArgs e)
+        {
+            frmQLyPhongTro frm = new frmQLyPhongTro();
+            frm.updateData += formUpdate;
+            frm.ShowDialog();
+        }
+        // button form Quán lý khách thuê
+        private void tsQLKhachThue_Click(object sender, EventArgs e)
+        {
+            frmQLyKhach frm = new frmQLyKhach();
+            frm.DataUpdate += formUpdate;
+            frm.ShowDialog();
+        }
+
+        private void tsSuaGiaDV_Click(object sender, EventArgs e)
+        {
+            frmCapNhatDichVu frm = new frmCapNhatDichVu();
+            frm.CapNhatDichVu += formUpdate;
+            frm.ShowDialog();
+        }
+
+        private void tsTinhTienPhong_Click(object sender, EventArgs e)
+        {
+            frmTaoHoaDon frm = new frmTaoHoaDon();
+            frm.ShowDialog();
+        }
+
+        private void tsTraPhong_Click(object sender, EventArgs e)
+        {
+            frmTraPhong frm = new frmTraPhong();
+            frm.updateData += formUpdate;
             frm.ShowDialog();
         }
     }

@@ -352,5 +352,12 @@ namespace QLyNhaTro_project
                 MessageBox.Show("Vui lòng chọn khách thuê cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            var date = DateTime.Now.ToString("dd/MM/yyyy");
+            var time = DateTime.Now.ToString("hh:mm:ss tt");
+            this.toolStripStatusLabel1.Text = string.Format($"Hôm nay là ngày: {date} - Bây giờ là: {time}");
+        }
     }
 }

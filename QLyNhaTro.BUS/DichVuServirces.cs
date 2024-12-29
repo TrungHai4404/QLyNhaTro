@@ -13,9 +13,22 @@ namespace QLyNhaTro.BUS
         // Lấy giá tiền theo mã dịch vụ
         public decimal GiaTienDichVu(string maDV)
         {
-            return db.DichVus.SingleOrDefault(x => x.MaDichVu == maDV).DonGia;
+            return db.DichVus.Where(x => x.MaDichVu == maDV).Select(x => x.DonGia).SingleOrDefault();
         }
-        
+        //Lấy ds dịch vụ
+        public List<DichVu> GetAll()
+        {
+            return db.DichVus.ToList();
+        }
+        // Cập nhật dịch vụ
+        public void CapNhatDichVu(DichVu dichVu)
+        {
+            var dv = db.DichVus.SingleOrDefault(x => x.MaDichVu == dichVu.MaDichVu);
+            dv.TenDichVu = dichVu.TenDichVu;
+            dv.DonGia = dichVu.DonGia;
+            db.SaveChanges();
+        }
+
 
     }
 }

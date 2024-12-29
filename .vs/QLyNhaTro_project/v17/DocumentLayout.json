@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "D:\\QLyNhaTro_project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A796DA38-C3F9-4B45-AC1B-BEC4A2C89BF8}|QLyNhaTro.BUS\\QLyNhaTro.BUS.csproj|d:\\qlynhatro_project\\qlynhatro.bus\\phongtroservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A796DA38-C3F9-4B45-AC1B-BEC4A2C89BF8}|QLyNhaTro.BUS\\QLyNhaTro.BUS.csproj|solutionrelative:qlynhatro.bus\\phongtroservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|D:\\QLyNhaTro_project\\qlynhatro_project\\frmtrangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|solutionrelative:qlynhatro_project\\frmtrangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|d:\\qlynhatro_project\\qlynhatro_project\\frmtaohoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|solutionrelative:qlynhatro_project\\frmtaohoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|d:\\qlynhatro_project\\qlynhatro_project\\frmqlyhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|solutionrelative:qlynhatro_project\\frmqlyhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A796DA38-C3F9-4B45-AC1B-BEC4A2C89BF8}|QLyNhaTro.BUS\\QLyNhaTro.BUS.csproj|d:\\qlynhatro_project\\qlynhatro.bus\\loaiphongservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A796DA38-C3F9-4B45-AC1B-BEC4A2C89BF8}|QLyNhaTro.BUS\\QLyNhaTro.BUS.csproj|solutionrelative:qlynhatro.bus\\loaiphongservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|d:\\qlynhatro_project\\qlynhatro_project\\frmtrangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|solutionrelative:qlynhatro_project\\frmtrangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,8 +18,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
@@ -43,53 +39,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PhongTroServices.cs",
-              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro.BUS\\PhongTroServices.cs",
-              "RelativeDocumentMoniker": "QLyNhaTro.BUS\\PhongTroServices.cs",
-              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro.BUS\\PhongTroServices.cs",
-              "RelativeToolTip": "QLyNhaTro.BUS\\PhongTroServices.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAswBkAAABpAAAAAAAAAA==",
+              "Title": "frmTrangChu.cs [Design]",
+              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmTrangChu.cs",
+              "RelativeDocumentMoniker": "QLyNhaTro_project\\frmTrangChu.cs",
+              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmTrangChu.cs [Design]",
+              "RelativeToolTip": "QLyNhaTro_project\\frmTrangChu.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-28T22:34:02.216Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LoaiPhongServices.cs",
-              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro.BUS\\LoaiPhongServices.cs",
-              "RelativeDocumentMoniker": "QLyNhaTro.BUS\\LoaiPhongServices.cs",
-              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro.BUS\\LoaiPhongServices.cs",
-              "RelativeToolTip": "QLyNhaTro.BUS\\LoaiPhongServices.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAowBYAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-28T21:46:39.853Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmQLyHoaDon.cs",
-              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmQLyHoaDon.cs",
-              "RelativeDocumentMoniker": "QLyNhaTro_project\\frmQLyHoaDon.cs",
-              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmQLyHoaDon.cs",
-              "RelativeToolTip": "QLyNhaTro_project\\frmQLyHoaDon.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAgwEIAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-28T21:09:51.84Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T17:21:22.409Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmTaoHoaDon.cs",
-              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmTaoHoaDon.cs",
-              "RelativeDocumentMoniker": "QLyNhaTro_project\\frmTaoHoaDon.cs",
-              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmTaoHoaDon.cs",
-              "RelativeToolTip": "QLyNhaTro_project\\frmTaoHoaDon.cs",
-              "ViewState": "AgIAAJMAAAAAAAAAAAA1wIsAAAA2AAAAAAAAAA==",
+              "Title": "frmTrangChu.cs",
+              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmTrangChu.cs",
+              "RelativeDocumentMoniker": "QLyNhaTro_project\\frmTrangChu.cs",
+              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmTrangChu.cs",
+              "RelativeToolTip": "QLyNhaTro_project\\frmTrangChu.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAiwCUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-28T21:45:18.64Z",
+              "WhenOpened": "2024-12-29T17:27:37.091Z",
               "EditorCaption": ""
             }
           ]
