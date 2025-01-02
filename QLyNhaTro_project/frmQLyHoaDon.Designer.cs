@@ -162,7 +162,7 @@
             // 
             // btnLamMoi
             // 
-            this.btnLamMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnLamMoi.BackColor = System.Drawing.Color.MintCream;
             this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLamMoi.Location = new System.Drawing.Point(0, 108);
             this.btnLamMoi.Name = "btnLamMoi";
@@ -174,7 +174,7 @@
             // 
             // btnTaoHoaDon
             // 
-            this.btnTaoHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnTaoHoaDon.BackColor = System.Drawing.Color.MintCream;
             this.btnTaoHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTaoHoaDon.Location = new System.Drawing.Point(165, 108);
             this.btnTaoHoaDon.Name = "btnTaoHoaDon";
@@ -186,7 +186,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.BackColor = System.Drawing.Color.Gray;
+            this.btnThoat.BackColor = System.Drawing.Color.MintCream;
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.Location = new System.Drawing.Point(768, 108);
             this.btnThoat.Name = "btnThoat";
@@ -198,13 +198,14 @@
             // 
             // btnCapNhat
             // 
+            this.btnCapNhat.BackColor = System.Drawing.Color.PeachPuff;
             this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCapNhat.Location = new System.Drawing.Point(685, 427);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(203, 29);
             this.btnCapNhat.TabIndex = 5;
             this.btnCapNhat.Text = "Cập nhật trạng thái";
-            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.UseVisualStyleBackColor = false;
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // statusStrip1
@@ -229,7 +230,7 @@
             this.toolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.toolStripStatusLabel1.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(835, 24);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(874, 23);
             this.toolStripStatusLabel1.Spring = true;
             this.toolStripStatusLabel1.Text = "Loading...";
             // 
@@ -243,6 +244,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(889, 486);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnCapNhat);

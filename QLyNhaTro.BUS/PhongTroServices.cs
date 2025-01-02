@@ -90,6 +90,14 @@ namespace QLyNhaTro.BUS
             }
             return null;
         }
+        // kiểm tra tên phòng đã tồn tại chưa
+        public int KiemTraPhongTonTai(string name)
+        {
+            var tenPhong = db.PhongTroes.FirstOrDefault(x => x.TenPhong == name);
+            if (tenPhong != null)
+                return 1; // da ton tai
+            return 0; // chua ton tai
+        }
         // Viết hàm tạo mã phòng tự động theo cấu trúc Pxx trong đó xx là số thứ tự
         public string TaoMaPhong()
         {

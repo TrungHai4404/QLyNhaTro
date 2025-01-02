@@ -58,32 +58,42 @@ namespace QLyNhaTro_project
                 MessageBox.Show("Tên phòng không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            PhongTro phongTro = new PhongTro
+            //Kiem tra phong da ton tai chua
+            var tenPhong = txtTenPhong.Text;
+            var KtraTonTai = phongTroServices.KiemTraPhongTonTai(tenPhong);
+            if (KtraTonTai == 1)
             {
-                MaPhong = phongTroServices.TaoMaPhong(),
-                TenPhong = txtTenPhong.Text,
-                MaLoaiPhong = radPhongDon.Checked ? "LP01" : "LP02",
-                GiaThue = loaiPhongServices.LayGiaPhongTheoMaLoaiPhong(radPhongDon.Checked ? "LP01" : "LP02"),
-                SucChua = radPhongDon.Checked ? 2 : 3, // Fixing the error by converting string to int
-                TrangThai = "Trống",
-                MoTa = "",
-                
-            };
-            LoaiPhong loaiPhong = new LoaiPhong
+                MessageBox.Show("Phòng đã tồn tai, Vui lòng nhập phòng khác", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
             {
-                MaLoaiPhong = radPhongDon.Checked ? "LP01" : "LP02",
-                TenLoaiPhong = radPhongDon.Checked ? "Phòng đơn" : "Phòng đôi",
-                GiaCoBan = loaiPhongServices.LayGiaPhongTheoMaLoaiPhong(radPhongDon.Checked ? "LP01" : "LP02"),
-                TienIch = ""
-            };
-            phongTroServices.ThemPhongTro(phongTro);
-            MessageBox.Show("Thêm phòng trọ thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            updateData?.Invoke();
-            bindingData();
-        }
-        
-        
+                PhongTro phongTro = new PhongTro
+                {
+                    MaPhong = phongTroServices.TaoMaPhong(),
+                    TenPhong = txtTenPhong.Text,
+                    MaLoaiPhong = radPhongDon.Checked ? "LP01" : "LP02",
+                    GiaThue = loaiPhongServices.LayGiaPhongTheoMaLoaiPhong(radPhongDon.Checked ? "LP01" : "LP02"),
+                    SucChua = radPhongDon.Checked ? 2 : 3, // Fixing the error by converting string to int
+                    TrangThai = "Trống",
+                    MoTa = "",
 
+                };
+                LoaiPhong loaiPhong = new LoaiPhong
+                {
+                    MaLoaiPhong = radPhongDon.Checked ? "LP01" : "LP02",
+                    TenLoaiPhong = radPhongDon.Checked ? "Phòng đơn" : "Phòng đôi",
+                    GiaCoBan = loaiPhongServices.LayGiaPhongTheoMaLoaiPhong(radPhongDon.Checked ? "LP01" : "LP02"),
+                    TienIch = ""
+                };
+                phongTroServices.ThemPhongTro(phongTro);
+                MessageBox.Show("Thêm phòng trọ thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                updateData?.Invoke();
+                bindingData();
+                txtTenPhong.Text = "";
+                radPhongDon.Checked = true;
+            }
+        }
         private void btnThoat_Click(object sender, EventArgs e)
         {
             DialogResult  dlg = MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

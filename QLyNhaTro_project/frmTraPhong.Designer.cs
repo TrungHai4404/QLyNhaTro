@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbLoaiPhong = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbSoPhong = new System.Windows.Forms.ComboBox();
             this.btnTraPhong = new System.Windows.Forms.Button();
+            this.cmbSoPhong = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbLoaiPhong = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -45,6 +45,7 @@
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngayThue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -53,6 +54,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.SeaShell;
             this.groupBox1.Controls.Add(this.btnTraPhong);
             this.groupBox1.Controls.Add(this.cmbSoPhong);
             this.groupBox1.Controls.Add(this.label2);
@@ -65,32 +67,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chọn phòng";
             // 
-            // label1
+            // btnTraPhong
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Loại phòng";
-            // 
-            // cmbLoaiPhong
-            // 
-            this.cmbLoaiPhong.FormattingEnabled = true;
-            this.cmbLoaiPhong.Location = new System.Drawing.Point(145, 41);
-            this.cmbLoaiPhong.Name = "cmbLoaiPhong";
-            this.cmbLoaiPhong.Size = new System.Drawing.Size(121, 24);
-            this.cmbLoaiPhong.TabIndex = 1;
-            this.cmbLoaiPhong.SelectedIndexChanged += new System.EventHandler(this.cmbLoaiPhong_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(46, 94);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Số Phòng";
+            this.btnTraPhong.BackColor = System.Drawing.Color.MistyRose;
+            this.btnTraPhong.Location = new System.Drawing.Point(290, 60);
+            this.btnTraPhong.Name = "btnTraPhong";
+            this.btnTraPhong.Size = new System.Drawing.Size(100, 41);
+            this.btnTraPhong.TabIndex = 2;
+            this.btnTraPhong.Text = "Trả phòng";
+            this.btnTraPhong.UseVisualStyleBackColor = false;
+            this.btnTraPhong.Click += new System.EventHandler(this.btnTraPhong_Click);
             // 
             // cmbSoPhong
             // 
@@ -101,15 +87,32 @@
             this.cmbSoPhong.TabIndex = 1;
             this.cmbSoPhong.SelectedIndexChanged += new System.EventHandler(this.cmbSoPhong_SelectedIndexChanged);
             // 
-            // btnTraPhong
+            // label2
             // 
-            this.btnTraPhong.Location = new System.Drawing.Point(290, 60);
-            this.btnTraPhong.Name = "btnTraPhong";
-            this.btnTraPhong.Size = new System.Drawing.Size(100, 41);
-            this.btnTraPhong.TabIndex = 2;
-            this.btnTraPhong.Text = "Trả phòng";
-            this.btnTraPhong.UseVisualStyleBackColor = true;
-            this.btnTraPhong.Click += new System.EventHandler(this.btnTraPhong_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(46, 94);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Số Phòng";
+            // 
+            // cmbLoaiPhong
+            // 
+            this.cmbLoaiPhong.FormattingEnabled = true;
+            this.cmbLoaiPhong.Location = new System.Drawing.Point(145, 41);
+            this.cmbLoaiPhong.Name = "cmbLoaiPhong";
+            this.cmbLoaiPhong.Size = new System.Drawing.Size(121, 24);
+            this.cmbLoaiPhong.TabIndex = 1;
+            this.cmbLoaiPhong.SelectedIndexChanged += new System.EventHandler(this.cmbLoaiPhong_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(46, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Loại phòng";
             // 
             // statusStrip1
             // 
@@ -133,7 +136,7 @@
             this.toolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.toolStripStatusLabel1.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(746, 24);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(785, 23);
             this.toolStripStatusLabel1.Spring = true;
             this.toolStripStatusLabel1.Text = "Loading...";
             // 
@@ -212,11 +215,24 @@
             this.ngayThue.Name = "ngayThue";
             this.ngayThue.ReadOnly = true;
             // 
+            // btnThoat
+            // 
+            this.btnThoat.BackColor = System.Drawing.Color.MistyRose;
+            this.btnThoat.Location = new System.Drawing.Point(682, 207);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(106, 44);
+            this.btnThoat.TabIndex = 10;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // frmTraPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(800, 470);
+            this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox1);
@@ -253,5 +269,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn diaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngayThue;
+        private System.Windows.Forms.Button btnThoat;
     }
 }

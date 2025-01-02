@@ -43,6 +43,7 @@
             this.diaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbThemKhach = new System.Windows.Forms.GroupBox();
+            this.btnLamMoi = new System.Windows.Forms.Button();
             this.radNu = new System.Windows.Forms.RadioButton();
             this.radNam = new System.Windows.Forms.RadioButton();
             this.btnLoadImg = new System.Windows.Forms.Button();
@@ -70,7 +71,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnLamMoi = new System.Windows.Forms.Button();
             this.gbDanhSachPhongTro.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSKhachThue)).BeginInit();
@@ -82,7 +82,7 @@
             // 
             // gbDanhSachPhongTro
             // 
-            this.gbDanhSachPhongTro.BackColor = System.Drawing.Color.Gainsboro;
+            this.gbDanhSachPhongTro.BackColor = System.Drawing.Color.Snow;
             this.gbDanhSachPhongTro.Controls.Add(this.label4);
             this.gbDanhSachPhongTro.Controls.Add(this.label2);
             this.gbDanhSachPhongTro.Controls.Add(this.cmbSoPhong);
@@ -214,7 +214,7 @@
             // 
             // gbThemKhach
             // 
-            this.gbThemKhach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gbThemKhach.BackColor = System.Drawing.Color.OldLace;
             this.gbThemKhach.Controls.Add(this.btnLamMoi);
             this.gbThemKhach.Controls.Add(this.radNu);
             this.gbThemKhach.Controls.Add(this.radNam);
@@ -241,6 +241,18 @@
             this.gbThemKhach.TabStop = false;
             this.gbThemKhach.Text = "Thêm khách thuê";
             this.gbThemKhach.Paint += new System.Windows.Forms.PaintEventHandler(this.gbThemKhach_Paint);
+            // 
+            // btnLamMoi
+            // 
+            this.btnLamMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnLamMoi.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLamMoi.Location = new System.Drawing.Point(436, 255);
+            this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.Size = new System.Drawing.Size(101, 23);
+            this.btnLamMoi.TabIndex = 6;
+            this.btnLamMoi.Text = "Làm mới";
+            this.btnLamMoi.UseVisualStyleBackColor = false;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // radNu
             // 
@@ -408,7 +420,7 @@
             // 
             // btnThemKhachThue
             // 
-            this.btnThemKhachThue.BackColor = System.Drawing.Color.Yellow;
+            this.btnThemKhachThue.BackColor = System.Drawing.Color.MintCream;
             this.btnThemKhachThue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnThemKhachThue.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnThemKhachThue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -422,7 +434,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.BackColor = System.Drawing.Color.Lime;
+            this.btnSua.BackColor = System.Drawing.Color.MintCream;
             this.btnSua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSua.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -436,7 +448,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnXoa.BackColor = System.Drawing.Color.MintCream;
             this.btnXoa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnXoa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -450,7 +462,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnThoat.BackColor = System.Drawing.Color.MintCream;
             this.btnThoat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnThoat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -514,23 +526,11 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btnLamMoi
-            // 
-            this.btnLamMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnLamMoi.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLamMoi.Location = new System.Drawing.Point(436, 255);
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(101, 23);
-            this.btnLamMoi.TabIndex = 6;
-            this.btnLamMoi.Text = "Làm mới";
-            this.btnLamMoi.UseVisualStyleBackColor = false;
-            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
-            // 
             // frmQLyKhach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(966, 614);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);

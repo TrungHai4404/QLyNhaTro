@@ -262,7 +262,7 @@
             // 
             // btnTinhTien
             // 
-            this.btnTinhTien.BackColor = System.Drawing.Color.Yellow;
+            this.btnTinhTien.BackColor = System.Drawing.Color.LightBlue;
             this.btnTinhTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTinhTien.Location = new System.Drawing.Point(32, 273);
             this.btnTinhTien.Name = "btnTinhTien";
@@ -754,6 +754,7 @@
             // 
             // groupBoxThongTinPhong
             // 
+            this.groupBoxThongTinPhong.BackColor = System.Drawing.Color.Silver;
             this.groupBoxThongTinPhong.Controls.Add(this.txtSL);
             this.groupBoxThongTinPhong.Controls.Add(this.txtNgayBD);
             this.groupBoxThongTinPhong.Controls.Add(this.txtSoPhong);
@@ -847,6 +848,7 @@
             this.dgvKhachThue.AllowUserToAddRows = false;
             this.dgvKhachThue.AllowUserToDeleteRows = false;
             this.dgvKhachThue.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvKhachThue.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvKhachThue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKhachThue.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaKT,
@@ -887,7 +889,7 @@
             // 
             // btnXuatHoaDon
             // 
-            this.btnXuatHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnXuatHoaDon.BackColor = System.Drawing.Color.MintCream;
             this.btnXuatHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXuatHoaDon.Location = new System.Drawing.Point(958, 34);
             this.btnXuatHoaDon.Name = "btnXuatHoaDon";
@@ -899,7 +901,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnThoat.BackColor = System.Drawing.Color.MintCream;
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.Location = new System.Drawing.Point(802, 35);
             this.btnThoat.Name = "btnThoat";
@@ -916,10 +918,10 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 567);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 568);
             this.statusStrip1.Margin = new System.Windows.Forms.Padding(0, 50, 0, 0);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1197, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(1197, 23);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 8;
             this.statusStrip1.Text = "statusStrip1";
@@ -932,7 +934,7 @@
             this.toolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.toolStripStatusLabel1.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(1143, 24);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(1182, 23);
             this.toolStripStatusLabel1.Spring = true;
             this.toolStripStatusLabel1.Text = "Loading...";
             // 
@@ -947,6 +949,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1197, 591);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnThoat);

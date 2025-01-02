@@ -212,5 +212,10 @@ namespace QLyNhaTro_project
         {
             tsQLKhachThue_Click(sender, e);
         }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

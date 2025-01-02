@@ -222,9 +222,16 @@ namespace QLyNhaTro_project
                     NgayBatDauThue = ngayThue.Value,
                     GioiTinh = radNam.Checked ? "Nam" : "Nữ",
                     NgaySinh = ngaySinh.Value,
-                    Avatar = saveAVT(avtFilePath, khachHangServices.TaoMaKhachThue()),
                     MaPhong = selectedSoPhong
                 };
+                if (!string.IsNullOrEmpty(avtFilePath))
+                {
+                    string avtFileName = saveAVT(avtFilePath, txtHoTen.Text);
+                    if (!string.IsNullOrEmpty(avtFileName))
+                    {
+                        khachThue.Avatar = avtFileName;
+                    }
+                }
                 khachHangServices.ThemKhachThue(khachThue);
                 //tạo hợp đồng theo khách thuê
                 var hopDong = new HopDong

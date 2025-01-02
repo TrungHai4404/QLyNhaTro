@@ -25,7 +25,6 @@ namespace QLyNhaTro_project
             InitializeComponent();
             DuLieuLoaiPhong(loaiPhongServices.GetAll());
         }
-
         private void DuLieuLoaiPhong(List<LoaiPhong> LoaiPhong)
         {
             cmbLoaiPhong.DataSource = LoaiPhong;
@@ -247,6 +246,36 @@ namespace QLyNhaTro_project
 
             frmXuatHoaDon frm = new frmXuatHoaDon(rpt);
             frm.ShowDialog();
+            clearData();
+        }
+
+        private void clearData()
+        {
+            DuLieuLoaiPhong(loaiPhongServices.GetAll());
+            BindingData();
+            bindGrid(khachHangServices.LayKhachThueTheoMaPhong(cmbSoPhong.SelectedValue.ToString()));
+            MaHoaDon();
+            ThemThongTin();
+            txtMaHD.Text = string.Empty;
+            txtMaPhong.Text = string.Empty;
+            txtMaHopDong.Text = string.Empty;
+            txtTienPhong.Text = string.Empty;
+            txtTienDien.Text = string.Empty;
+            txtSoDienCu.Text = string.Empty;
+            txtSoDienMoi.Text = string.Empty;
+            txtTienNuoc.Text = string.Empty;
+            txtKhoiNuocCu.Text = string.Empty;
+            txtKhoiNuocMoi.Text = string.Empty;
+            txtTienInternet.Text = string.Empty;
+            txtTienVeSinh.Text = string.Empty;
+            txtTienBaoTri.Text = string.Empty;
+            txtThanhTienPhong.Text = string.Empty;
+            txtThanhTienDien.Text = string.Empty;
+            txtThanhTienNuoc.Text = string.Empty;
+            txtThanhInternet.Text = string.Empty;
+            txtThanhTienVeSinh.Text = string.Empty;
+            txtThanhTienBaoTri.Text = string.Empty;
+            txtTongTien.Text = string.Empty;
         }
 
         internal rptHoaDon TruyenDuLieuHoaDon(rptHoaDon rpt)

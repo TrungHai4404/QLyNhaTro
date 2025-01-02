@@ -82,6 +82,7 @@ namespace QLyNhaTro_project
             }
             else
             {
+                int slHoaDon = 0;
                 var maPhong = cmbSoPhong.SelectedValue.ToString();
                 var hopDong = hopDongServices.FindByMaPhong(maPhong); // Tìm hợp đồng theo mã phòng
                 var listKhachThue = khachHangServices.LayKhachThueTheoMaPhong(maPhong); // Lấy danh sách khách thuê theo mã phòng
@@ -94,7 +95,32 @@ namespace QLyNhaTro_project
                         {
                             foreach (var hd in dsHoaDon)
                             {
-                                hoaDonServices.XoaHoaDon(hd.MaHopDong);
+                                if(hd.TrangThaiThanhToan == "Chưa thanh toán")
+                                {
+                                    slHoaDon++;
+                                }
+                                
+                            }
+                            if (slHoaDon > 0)
+                            {
+                                DialogResult result =  MessageBox.Show($"Phòng chưa thanh toán {slHoaDon} hóa đơn! Bạn có muốn chuyển sang trang Quản Lý Hóa Đơn", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                                if (result == DialogResult.Yes)
+                                {
+                                    frmQLyHoaDon frmQLyHoaDon = new frmQLyHoaDon();
+                                    frmQLyHoaDon.ShowDialog();
+                                }
+                            }
+                            DialogResult rst = MessageBox.Show("Bạn chắc chắn trả phòng? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (rst == DialogResult.Yes)
+                            {
+                                foreach (var hd in dsHoaDon)
+                                {
+                                    hoaDonServices.XoaHoaDon(hd.MaHopDong);
+                                }
+                            }
+                            else
+                            {
+                                return;
                             }
                         }
                         if (listKhachThue != null)
@@ -119,6 +145,15 @@ namespace QLyNhaTro_project
             var date = DateTime.Now.ToString("dd/MM/yyyy");
             var time = DateTime.Now.ToString("hh:mm:ss tt");
             this.toolStripStatusLabel1.Text = string.Format($"Hôm nay là ngày: {date} - Bây giờ là: {time}");
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }
