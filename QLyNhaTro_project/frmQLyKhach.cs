@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -196,17 +197,15 @@ namespace QLyNhaTro_project
                 MessageBox.Show("Vui lòng chọn phòng trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            if (string.IsNullOrEmpty(txtCMND.Text))
-            {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
             if (ngaySinh.Value > DateTime.Now)
             {
                 MessageBox.Show("Ngày sinh không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (checkID(txtCMND.Text) == false)
+                return;
+            if (checkSDT(txtSDT.Text) == false)
+                return;
             int demKT = khachHangServices.DemSLKhach(selectedSoPhong); // Đếm số lượng khách thuê trong phòng
             int loaiPhong = loaiPhongServices.KiemTraLoaiPhong(selectedLoaiPhong); // Kiểm tra loại phòng (LP01 hoặc LP02)
 
@@ -234,7 +233,7 @@ namespace QLyNhaTro_project
                         khachThue.Avatar = avtFileName;
                     }
                 }
-                khachHangServices.ThemKhachThue(khachThue);
+                khachHangServices.CapNhatKhachThue(khachThue);
                 //tạo hợp đồng theo khách thuê
                 var hopDong = new HopDong
                 {
@@ -281,10 +280,50 @@ namespace QLyNhaTro_project
                 }
             }
         }
+        // Kiem tra cccd/cmnd
+        private bool checkID(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                MessageBox.Show("ID không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (id.Length != 12 && id.Length != 9)
+            {
+                MessageBox.Show("Vui lòng nhập CCCD hoặc CMND", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (!System.Text.RegularExpressions.Regex.IsMatch(id, @"^\d+$"))
+            {
+                MessageBox.Show("ID chỉ là các kí tự số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
 
+        // kiem tra sdt
+        private bool checkSDT(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                MessageBox.Show("SDT không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (id.Length != 10)
+            {
+                MessageBox.Show("Vui lòng nhập sdt có 10 số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (!System.Text.RegularExpressions.Regex.IsMatch(id, @"^\d+$"))
+            {
+                MessageBox.Show("SDT chỉ là các kí tự số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
         private void clearData()
         {
-            cmbSoPhong.SelectedValue = 0;
+            //cmbSoPhong.SelectedValue = 0;
             txtHoTen.Text = "";
             txtCMND.Text = "";
             txtSDT.Text = "";
@@ -377,5 +416,43 @@ namespace QLyNhaTro_project
             var list = khachHangServices.GetAll();
             bindGrid(list);
         }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string tenKhachHang = txtTenKH.Text.Trim();
+            if (string.IsNullOrEmpty(tenKhachHang))
+            {
+                MessageBox.Show("Vui lòng nhập tên khách hàng cần tìm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var khachThue = khachHangServices.GetAll().Where(kh => RemoveDiacritics(kh.HoTen).IndexOf(RemoveDiacritics(tenKhachHang), StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            if (khachThue.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                bindGrid(khachThue);
+            }
+        }
+
+        private string RemoveDiacritics(string text)
+        {
+            var normalizedString = text.Normalize(NormalizationForm.FormD);
+            var stringBuilder = new StringBuilder();
+
+            foreach (var c in normalizedString)
+            {
+                var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+                {
+                    stringBuilder.Append(c);
+                }
+            }
+
+            return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
+        }
+        
     }
 }

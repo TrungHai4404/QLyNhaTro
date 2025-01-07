@@ -117,6 +117,16 @@ namespace QLyNhaTro.BUS
                 db.SaveChanges();
             }
         }
+        // Xóa hóa đơn theo mã hóa đơn
+        public void XoaHoaDonTheoMaHoaDon(string maHD) // Xóa hóa đơn theo mã hợp đồng
+        {
+            var hd = db.HoaDons.FirstOrDefault(x => x.MaHoaDon == maHD);
+            if (hd != null)
+            {
+                db.HoaDons.Remove(hd);
+                db.SaveChanges();
+            }
+        }
         //Lấy danh sách hóa đơn theo mã hợp đồng
         public List<HoaDon> LayDSHoaDonTheoMaHopDong(string maHopDong)
         {

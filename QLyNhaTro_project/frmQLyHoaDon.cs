@@ -100,5 +100,46 @@ namespace QLyNhaTro_project
         {
 
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (dgvHoaDon.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvHoaDon.SelectedRows)
+                {
+                    var maHoaDon = row.Cells[0].Value.ToString();
+                    hoaDonServices.XoaHoaDonTheoMaHoaDon(maHoaDon);
+                }
+                MessageBox.Show("Xóa hóa đơn thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                bindGrid(hoaDonServices.GetAllHoaDon());
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn hóa đơn cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string tenPhong = txtTenPhong.Text.Trim();
+            if (!string.IsNullOrEmpty(tenPhong))
+            {
+                var hoaDons = hoaDonServices.GetAllHoaDon()
+                    .Where(hd => hd.HopDong.PhongTro.TenPhong.Contains(tenPhong))
+                    .ToList();
+                if (hoaDons.Count > 0)
+                {
+                    bindGrid(hoaDons);
+                }
+                else
+                {
+                    MessageBox.Show("Phòng này không có hóa đơn nào!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập tên phòng cần tìm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
