@@ -39,6 +39,7 @@
             this.rptViewerHoaDon.ServerReport.BearerToken = null;
             this.rptViewerHoaDon.Size = new System.Drawing.Size(1036, 649);
             this.rptViewerHoaDon.TabIndex = 0;
+            this.rptViewerHoaDon.Load += new System.EventHandler(this.rptViewerHoaDon_Load_1);
             // 
             // frmXuatHoaDon
             // 
@@ -47,6 +48,7 @@
             this.ClientSize = new System.Drawing.Size(1036, 649);
             this.Controls.Add(this.rptViewerHoaDon);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "frmXuatHoaDon";
             this.Text = "frmXuatHoaDon";
             this.Load += new System.EventHandler(this.rptViewerHoaDon_Load);

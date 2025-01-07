@@ -38,13 +38,13 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtMaDV = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtTen = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtGia = new System.Windows.Forms.TextBox();
+            this.txtTen = new System.Windows.Forms.TextBox();
+            this.txtMaDV = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDichVu)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -55,6 +55,7 @@
             this.dgvDichVu.AllowUserToAddRows = false;
             this.dgvDichVu.AllowUserToDeleteRows = false;
             this.dgvDichVu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDichVu.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvDichVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDichVu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column3,
@@ -124,7 +125,7 @@
             this.toolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.toolStripStatusLabel1.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(658, 23);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(629, 23);
             this.toolStripStatusLabel1.Spring = true;
             this.toolStripStatusLabel1.Text = "Loading...";
             // 
@@ -150,21 +151,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin DV";
             // 
-            // textBox1
+            // txtGia
             // 
-            this.textBox1.Location = new System.Drawing.Point(94, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(113, 22);
-            this.textBox1.TabIndex = 1;
+            this.txtGia.Location = new System.Drawing.Point(93, 104);
+            this.txtGia.Name = "txtGia";
+            this.txtGia.Size = new System.Drawing.Size(113, 22);
+            this.txtGia.TabIndex = 1;
             // 
-            // label1
+            // txtTen
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Mã DV";
+            this.txtTen.Location = new System.Drawing.Point(93, 66);
+            this.txtTen.Name = "txtTen";
+            this.txtTen.Size = new System.Drawing.Size(113, 22);
+            this.txtTen.TabIndex = 1;
             // 
             // txtMaDV
             // 
@@ -173,21 +172,12 @@
             this.txtMaDV.Size = new System.Drawing.Size(113, 22);
             this.txtMaDV.TabIndex = 1;
             // 
-            // label2
+            // textBox1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 69);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Tên";
-            // 
-            // txtTen
-            // 
-            this.txtTen.Location = new System.Drawing.Point(93, 66);
-            this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(113, 22);
-            this.txtTen.TabIndex = 1;
+            this.textBox1.Location = new System.Drawing.Point(94, 24);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(113, 22);
+            this.textBox1.TabIndex = 1;
             // 
             // label3
             // 
@@ -198,12 +188,23 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Giá";
             // 
-            // txtGia
+            // label2
             // 
-            this.txtGia.Location = new System.Drawing.Point(93, 104);
-            this.txtGia.Name = "txtGia";
-            this.txtGia.Size = new System.Drawing.Size(113, 22);
-            this.txtGia.TabIndex = 1;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Tên";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Mã DV";
             // 
             // frmCapNhatDichVu
             // 
@@ -214,6 +215,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.dgvDichVu);
+            this.MaximizeBox = false;
             this.Name = "frmCapNhatDichVu";
             this.Text = "frmCapNhatDichVu";
             this.Load += new System.EventHandler(this.frmCapNhatDichVu_Load);

@@ -87,3 +87,7 @@ D:\QLyNhaTro_project\QLyNhaTro_project\bin\Debug\zh-Hant\Microsoft.SqlServer.Typ
 D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.frmXuatHoaDon.resources
 D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.frmCapNhatDichVu.resources
 D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.frmTraPhong.resources
+D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.frmQLyHopDong.resources
+D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.frmXuatHopDong.resources
+D:\QLyNhaTro_project\QLyNhaTro_project\bin\Debug\rpHopDong.rdlc
+D:\QLyNhaTro_project\QLyNhaTro_project\obj\Debug\QLyNhaTro_project.frmThongKeDoanhThu.resources

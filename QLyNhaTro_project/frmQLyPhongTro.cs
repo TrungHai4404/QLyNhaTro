@@ -42,9 +42,10 @@ namespace QLyNhaTro_project
             foreach (var item in phongTroServices.GetAll())
             {
                 int index = dgvPhongTro.Rows.Add();
+                var loaiPhong = loaiPhongServices.GetAll().SingleOrDefault(x => x.MaLoaiPhong == item.MaLoaiPhong);
                 dgvPhongTro.Rows[index].Cells[0].Value = item.MaPhong;
                 dgvPhongTro.Rows[index].Cells[1].Value = item.TenPhong;
-                dgvPhongTro.Rows[index].Cells[2].Value = item.LoaiPhong.TenLoaiPhong;
+                dgvPhongTro.Rows[index].Cells[2].Value = loaiPhong.TenLoaiPhong;
                 dgvPhongTro.Rows[index].Cells[3].Value = item.SucChua;
                 dgvPhongTro.Rows[index].Cells[4].Value = item.LoaiPhong.GiaCoBan;
                 dgvPhongTro.Rows[index].Cells[5].Value = item.TrangThai;

@@ -541,6 +541,7 @@
             this.Controls.Add(this.gbThemKhach);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.gbDanhSachPhongTro);
+            this.MaximizeBox = false;
             this.Name = "frmQLyKhach";
             this.Text = "Quản lý khách thuê";
             this.Load += new System.EventHandler(this.frmQLyKhach_Load);

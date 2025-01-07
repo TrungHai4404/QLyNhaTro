@@ -58,6 +58,7 @@
             this.dgvPhongTro.AllowUserToAddRows = false;
             this.dgvPhongTro.AllowUserToDeleteRows = false;
             this.dgvPhongTro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPhongTro.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvPhongTro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPhongTro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,

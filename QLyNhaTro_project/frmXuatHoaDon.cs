@@ -78,6 +78,11 @@ namespace QLyNhaTro_project
 
             return table;
         }
+
+        private void rptViewerHoaDon_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

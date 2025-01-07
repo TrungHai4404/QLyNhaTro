@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "D:\\QLyNhaTro_project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|d:\\qlynhatro_project\\qlynhatro_project\\frmtraphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|solutionrelative:qlynhatro_project\\frmtraphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|d:\\qlynhatro_project\\qlynhatro_project\\frmqlykhach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|solutionrelative:qlynhatro_project\\frmqlykhach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|D:\\QLyNhaTro_project\\qlynhatro_project\\frmtrangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|solutionrelative:qlynhatro_project\\frmtrangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|d:\\qlynhatro_project\\qlynhatro_project\\frmthongkedoanhthu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8781054E-D30A-4D22-B639-01F6CEB1E62E}|QLyNhaTro_project\\QLyNhaTro_project.csproj|solutionrelative:qlynhatro_project\\frmthongkedoanhthu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,37 +35,13 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmTraPhong.cs [Design]",
-              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmTraPhong.cs",
-              "RelativeDocumentMoniker": "QLyNhaTro_project\\frmTraPhong.cs",
-              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmTraPhong.cs [Design]",
-              "RelativeToolTip": "QLyNhaTro_project\\frmTraPhong.cs [Design]",
+              "Title": "frmThongKeDoanhThu.cs [Design]",
+              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmThongKeDoanhThu.cs",
+              "RelativeDocumentMoniker": "QLyNhaTro_project\\frmThongKeDoanhThu.cs",
+              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmThongKeDoanhThu.cs [Design]",
+              "RelativeToolTip": "QLyNhaTro_project\\frmThongKeDoanhThu.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T08:59:46.545Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmQLyKhach.cs [Design]",
-              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmQLyKhach.cs",
-              "RelativeDocumentMoniker": "QLyNhaTro_project\\frmQLyKhach.cs",
-              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmQLyKhach.cs [Design]",
-              "RelativeToolTip": "QLyNhaTro_project\\frmQLyKhach.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T08:48:57.388Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmTrangChu.cs [Design]",
-              "DocumentMoniker": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmTrangChu.cs",
-              "RelativeDocumentMoniker": "QLyNhaTro_project\\frmTrangChu.cs",
-              "ToolTip": "D:\\QLyNhaTro_project\\QLyNhaTro_project\\frmTrangChu.cs [Design]",
-              "RelativeToolTip": "QLyNhaTro_project\\frmTrangChu.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T07:19:22.002Z",
+              "WhenOpened": "2025-01-07T14:10:46.542Z",
               "EditorCaption": " [Design]"
             }
           ]

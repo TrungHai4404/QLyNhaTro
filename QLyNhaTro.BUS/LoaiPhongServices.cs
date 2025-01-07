@@ -25,7 +25,6 @@ namespace QLyNhaTro.BUS
         {
             return maLP == "LP01" ? 0 : 1;
         }
-
         public decimal LayGiaPhongTheoMaLoaiPhong(string text)
         {
             return db.LoaiPhongs.Where(x => x.MaLoaiPhong == text).Select(x => x.GiaCoBan).FirstOrDefault();

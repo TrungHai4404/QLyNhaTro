@@ -217,5 +217,32 @@ namespace QLyNhaTro_project
         {
 
         }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tsThoat_Click(sender, e);
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+                case Keys.Alt | Keys.F4:
+                    tsThoat_Click(this, EventArgs.Empty);
+                    return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void quảnLýHợpĐồngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmQLyHopDong frm = new frmQLyHopDong();
+            frm.ShowDialog();
+        }
+
+        private void thốngKêDoanhThuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmThongKeDoanhThu frm = new frmThongKeDoanhThu();
+            frm.ShowDialog();
+        }
     }
 }

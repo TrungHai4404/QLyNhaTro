@@ -25,6 +25,20 @@ namespace QLyNhaTro.BUS
         {
             return db.HopDongs.Where(x => x.MaPhong == maPhong).ToList();
         }
+        // Tìm Hợp đồng theo mã hợp đồng
+        public HopDong FindByMaHD(string maHopDong)
+        {
+            return db.HopDongs.FirstOrDefault(x => x.MaHopDong == maHopDong);
+        }
+
+        public int LayLoaiPhongTheoMaPhong(string maPhong)
+        {
+            var phongTro = db.PhongTroes.FirstOrDefault(x => x.MaPhong == maPhong);
+            var loaiPhong = db.LoaiPhongs.FirstOrDefault(x => x.MaLoaiPhong == phongTro.MaLoaiPhong);
+                if (loaiPhong.MaLoaiPhong == "LP01")
+                    return 15;
+            return 20;
+        }
         // Hàm tạo mã hợp đông
         public string TaoMaHopDong()
         {
@@ -91,6 +105,16 @@ namespace QLyNhaTro.BUS
                 db.SaveChanges();
             }
             
+        }
+
+        public void CapNhatTinhTrang(HopDong item) 
+        {
+            var hopDong = db.HopDongs.SingleOrDefault(x => x.MaHopDong == item.MaHopDong);
+            if (hopDong != null)
+            {
+                hopDong.TinhTrang = item.TinhTrang;
+                db.SaveChanges();
+            }
         }
     }
 }

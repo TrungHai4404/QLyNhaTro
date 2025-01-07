@@ -82,6 +82,12 @@
     <Compile Include="frmCapNhatDichVu.Designer.cs">
       <DependentUpon>frmCapNhatDichVu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmQLyHopDong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQLyHopDong.Designer.cs">
+      <DependentUpon>frmQLyHopDong.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmQLyPhongTro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,12 @@
     </Compile>
     <Compile Include="frmQLyHoaDon.Designer.cs">
       <DependentUpon>frmQLyHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThongKeDoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThongKeDoanhThu.Designer.cs">
+      <DependentUpon>frmThongKeDoanhThu.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTrangChu.cs">
       <SubType>Form</SubType>
@@ -124,20 +136,33 @@
     <Compile Include="frmXuatHoaDon.Designer.cs">
       <DependentUpon>frmXuatHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmXuatHopDong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXuatHopDong.Designer.cs">
+      <DependentUpon>frmXuatHopDong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="rptHoaDon.cs" />
+    <Compile Include="rptHopDong.cs" />
     <EmbeddedResource Include="frmCapNhatDichVu.resx">
       <DependentUpon>frmCapNhatDichVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmQLyHoaDon.resx">
       <DependentUpon>frmQLyHoaDon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmQLyHopDong.resx">
+      <DependentUpon>frmQLyHopDong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmQLyPhongTro.resx">
       <DependentUpon>frmQLyPhongTro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTaoHoaDon.resx">
       <DependentUpon>frmTaoHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThongKeDoanhThu.resx">
+      <DependentUpon>frmThongKeDoanhThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTrangChu.resx">
       <DependentUpon>frmTrangChu.cs</DependentUpon>
@@ -150,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmXuatHoaDon.resx">
       <DependentUpon>frmXuatHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXuatHopDong.resx">
+      <DependentUpon>frmXuatHopDong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -164,9 +192,13 @@
     <EmbeddedResource Include="rpHoaDon.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="rpHopDong.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\frmTaoHoaDon.datasource" />
     <None Include="Properties\DataSources\rptHoaDon.datasource" />
+    <None Include="Properties\DataSources\rptHopDong.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

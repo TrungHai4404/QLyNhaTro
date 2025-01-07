@@ -30,6 +30,8 @@ namespace QLyNhaTro_project
         private void frmQLyKhach_Load(object sender, EventArgs e)
         {
             DuLieuLoaiPhong(loaiPhongServices.GetAll());
+            var list = khachHangServices.GetAll();
+            bindGrid(list);
             clearData();
         }
         private void DuLieuLoaiPhong(List<LoaiPhong> LoaiPhong)
@@ -372,6 +374,8 @@ namespace QLyNhaTro_project
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             clearData();
+            var list = khachHangServices.GetAll();
+            bindGrid(list);
         }
     }
 }

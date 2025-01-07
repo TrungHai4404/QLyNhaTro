@@ -37,7 +37,7 @@ namespace QLyNhaTro_project
             {
                 int index = dgvHoaDon.Rows.Add();
                 dgvHoaDon.Rows[index].Cells[0].Value = item.MaHoaDon;
-                dgvHoaDon.Rows[index].Cells[1].Value = item.MaHopDong;
+                dgvHoaDon.Rows[index].Cells[1].Value = item.HopDong.PhongTro.TenPhong; // Changed to TenPhong
                 dgvHoaDon.Rows[index].Cells[2].Value = item.ThangNam;
                 dgvHoaDon.Rows[index].Cells[3].Value = item.TienPhong;
                 dgvHoaDon.Rows[index].Cells[4].Value = item.TienDichVu;
@@ -94,6 +94,11 @@ namespace QLyNhaTro_project
             var date = DateTime.Now.ToString("dd/MM/yyyy");
             var time = DateTime.Now.ToString("hh:mm:ss tt");
             this.toolStripStatusLabel1.Text = string.Format($"Hôm nay là ngày: {date} - Bây giờ là: {time}");
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
