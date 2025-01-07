@@ -151,9 +151,6 @@ namespace QLyNhaTro_project
             txtGiaNuoc.Text = dichVuServirces.GiaTienDichVu("DV02").ToString();
             txtGiaInternet.Text = dichVuServirces.GiaTienDichVu("DV01").ToString();
         }
-
-        
-
         private void quảnLýHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQLyHoaDon frm = new frmQLyHoaDon();
@@ -202,23 +199,7 @@ namespace QLyNhaTro_project
             frm.updateData += formUpdate;
             frm.ShowDialog();
         }
-
-       
-
-        private void quảnLýKháchThuêToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tsQLKhachThue_Click(sender, e);
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tsThoat_Click(sender, e);
-        }
+        // Shortcut key
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             switch (keyData)
@@ -226,10 +207,22 @@ namespace QLyNhaTro_project
                 case Keys.Alt | Keys.F4:
                     tsThoat_Click(this, EventArgs.Empty);
                     return true;
+                case Keys.F1:
+                    thốngKêDoanhThuToolStripMenuItem_Click(this, EventArgs.Empty);
+                    return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
+
+        private void quảnLýKháchThuêToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tsQLKhachThue_Click(sender, e);
+        }
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tsThoat_Click(sender, e);
+        }
         private void quảnLýHợpĐồngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQLyHopDong frm = new frmQLyHopDong();
