@@ -535,7 +535,7 @@
             this.thoátToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
             this.thoátToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
             this.thoátToolStripMenuItem.Text = "Thoát";
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
@@ -543,7 +543,7 @@
             // 
             this.thốngKêDoanhThuToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thốngKêDoanhThuToolStripMenuItem.Name = "thốngKêDoanhThuToolStripMenuItem";
-            this.thốngKêDoanhThuToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.thốngKêDoanhThuToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
             this.thốngKêDoanhThuToolStripMenuItem.Text = "Thống kê doanh thu";
             this.thốngKêDoanhThuToolStripMenuItem.Click += new System.EventHandler(this.thốngKêDoanhThuToolStripMenuItem_Click);
             // 
@@ -566,14 +566,15 @@
             // 
             this.quảnLýPhòngTrọToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quảnLýPhòngTrọToolStripMenuItem.Name = "quảnLýPhòngTrọToolStripMenuItem";
-            this.quảnLýPhòngTrọToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
+            this.quảnLýPhòngTrọToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.quảnLýPhòngTrọToolStripMenuItem.Text = "Quản lý phòng trọ";
+            this.quảnLýPhòngTrọToolStripMenuItem.Click += new System.EventHandler(this.quảnLýPhòngTrọToolStripMenuItem_Click_1);
             // 
             // quảnLýHóaĐơnToolStripMenuItem
             // 
             this.quảnLýHóaĐơnToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quảnLýHóaĐơnToolStripMenuItem.Name = "quảnLýHóaĐơnToolStripMenuItem";
-            this.quảnLýHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
+            this.quảnLýHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.quảnLýHóaĐơnToolStripMenuItem.Text = "Quản lý hóa đơn";
             this.quảnLýHóaĐơnToolStripMenuItem.Click += new System.EventHandler(this.quảnLýHóaĐơnToolStripMenuItem_Click);
             // 
@@ -581,7 +582,7 @@
             // 
             this.quảnLýHợpĐồngToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quảnLýHợpĐồngToolStripMenuItem.Name = "quảnLýHợpĐồngToolStripMenuItem";
-            this.quảnLýHợpĐồngToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
+            this.quảnLýHợpĐồngToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.quảnLýHợpĐồngToolStripMenuItem.Text = "Quản lý hợp đồng";
             this.quảnLýHợpĐồngToolStripMenuItem.Click += new System.EventHandler(this.quảnLýHợpĐồngToolStripMenuItem_Click);
             // 
@@ -589,7 +590,7 @@
             // 
             this.quảnLýKháchThuêToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quảnLýKháchThuêToolStripMenuItem.Name = "quảnLýKháchThuêToolStripMenuItem";
-            this.quảnLýKháchThuêToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
+            this.quảnLýKháchThuêToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.quảnLýKháchThuêToolStripMenuItem.Text = "Quản lý khách thuê";
             this.quảnLýKháchThuêToolStripMenuItem.Click += new System.EventHandler(this.quảnLýKháchThuêToolStripMenuItem_Click);
             // 
@@ -597,22 +598,25 @@
             // 
             this.trảPhòngToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trảPhòngToolStripMenuItem.Name = "trảPhòngToolStripMenuItem";
-            this.trảPhòngToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
+            this.trảPhòngToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.trảPhòngToolStripMenuItem.Text = "Trả phòng";
+            this.trảPhòngToolStripMenuItem.Click += new System.EventHandler(this.trảPhòngToolStripMenuItem_Click);
             // 
             // sửaGiáDịchVụToolStripMenuItem
             // 
             this.sửaGiáDịchVụToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sửaGiáDịchVụToolStripMenuItem.Name = "sửaGiáDịchVụToolStripMenuItem";
-            this.sửaGiáDịchVụToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
+            this.sửaGiáDịchVụToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.sửaGiáDịchVụToolStripMenuItem.Text = "Sửa giá dịch vụ";
+            this.sửaGiáDịchVụToolStripMenuItem.Click += new System.EventHandler(this.sửaGiáDịchVụToolStripMenuItem_Click);
             // 
             // tínhTiềnPhòngToolStripMenuItem
             // 
             this.tínhTiềnPhòngToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tínhTiềnPhòngToolStripMenuItem.Name = "tínhTiềnPhòngToolStripMenuItem";
-            this.tínhTiềnPhòngToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
+            this.tínhTiềnPhòngToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.tínhTiềnPhòngToolStripMenuItem.Text = "Tính tiền phòng";
+            this.tínhTiềnPhòngToolStripMenuItem.Click += new System.EventHandler(this.tínhTiềnPhòngToolStripMenuItem_Click);
             // 
             // tìmKiếmToolStripMenuItem
             // 

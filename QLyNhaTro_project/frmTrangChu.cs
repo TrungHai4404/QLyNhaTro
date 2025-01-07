@@ -203,10 +203,7 @@ namespace QLyNhaTro_project
             frm.ShowDialog();
         }
 
-        private void quảnLýPhòngTrọToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tsQLPhongThue_Click(sender, e);
-        }
+       
 
         private void quảnLýKháchThuêToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -243,6 +240,26 @@ namespace QLyNhaTro_project
         {
             frmThongKeDoanhThu frm = new frmThongKeDoanhThu();
             frm.ShowDialog();
+        }
+
+        private void quảnLýPhòngTrọToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            tsQLPhongThue_Click(sender, e);
+        }
+
+        private void sửaGiáDịchVụToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tsSuaGiaDV_Click(sender, e);
+        }
+
+        private void tínhTiềnPhòngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tsTinhTienPhong_Click(sender, e);
+        }
+
+        private void trảPhòngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tsTraPhong_Click(sender,e);
         }
     }
 }

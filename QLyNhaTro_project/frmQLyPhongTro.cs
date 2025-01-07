@@ -47,7 +47,7 @@ namespace QLyNhaTro_project
                 dgvPhongTro.Rows[index].Cells[1].Value = item.TenPhong;
                 dgvPhongTro.Rows[index].Cells[2].Value = loaiPhong.TenLoaiPhong;
                 dgvPhongTro.Rows[index].Cells[3].Value = item.SucChua;
-                dgvPhongTro.Rows[index].Cells[4].Value = item.LoaiPhong.GiaCoBan;
+                dgvPhongTro.Rows[index].Cells[4].Value = loaiPhong.GiaCoBan;
                 dgvPhongTro.Rows[index].Cells[5].Value = item.TrangThai;
             }
         }
