@@ -154,7 +154,7 @@ namespace QLyNhaTro_project
         private void quảnLýHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQLyHoaDon frm = new frmQLyHoaDon();
-            frm.ShowDialog();
+            frm.Show();
         }
         // button Thoát
         private void tsThoat_Click(object sender, EventArgs e)
@@ -170,34 +170,34 @@ namespace QLyNhaTro_project
         {
             frmQLyPhongTro frm = new frmQLyPhongTro();
             frm.updateData += formUpdate;
-            frm.ShowDialog();
+            frm.Show();
         }
         // button form Quán lý khách thuê
         private void tsQLKhachThue_Click(object sender, EventArgs e)
         {
             frmQLyKhach frm = new frmQLyKhach();
             frm.DataUpdate += formUpdate;
-            frm.ShowDialog();
+            frm.Show();
         }
 
         private void tsSuaGiaDV_Click(object sender, EventArgs e)
         {
             frmCapNhatDichVu frm = new frmCapNhatDichVu();
             frm.CapNhatDichVu += formUpdate;
-            frm.ShowDialog();
+            frm.Show();
         }
 
         private void tsTinhTienPhong_Click(object sender, EventArgs e)
         {
             frmTaoHoaDon frm = new frmTaoHoaDon();
-            frm.ShowDialog();
+            frm.Show();
         }
 
         private void tsTraPhong_Click(object sender, EventArgs e)
         {
             frmTraPhong frm = new frmTraPhong();
             frm.updateData += formUpdate;
-            frm.ShowDialog();
+            frm.Show();
         }
         // Shortcut key
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -253,6 +253,11 @@ namespace QLyNhaTro_project
         private void trảPhòngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tsTraPhong_Click(sender,e);
+        }
+
+        private void dgvDSKhachThue_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

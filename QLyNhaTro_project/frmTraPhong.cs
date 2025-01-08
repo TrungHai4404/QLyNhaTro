@@ -28,6 +28,7 @@ namespace QLyNhaTro_project
         private void frmTraPhong_Load(object sender, EventArgs e)
         {
             DuLieuLoaiPhongThue(loaiPhongServices.GetAll());
+            bindGrid(khachHangServices.GetAll());
         }
         // đổ dữ liệu vào group box phòng đã thuê
         private void DuLieuLoaiPhongThue(List<LoaiPhong> LoaiPhong)
@@ -80,64 +81,74 @@ namespace QLyNhaTro_project
                 MessageBox.Show("Vui lòng chọn phòng cần trả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            else
+
+            var maPhong = cmbSoPhong.SelectedValue.ToString();
+            var hopDong = hopDongServices.FindByMaPhong(maPhong); // Tìm hợp đồng theo mã phòng
+            var listKhachThue = khachHangServices.LayKhachThueTheoMaPhong(maPhong); // Lấy danh sách khách thuê theo mã phòng
+
+            if (hopDong == null)
             {
-                int slHoaDon = 0;
-                var maPhong = cmbSoPhong.SelectedValue.ToString();
-                var hopDong = hopDongServices.FindByMaPhong(maPhong); // Tìm hợp đồng theo mã phòng
-                var listKhachThue = khachHangServices.LayKhachThueTheoMaPhong(maPhong); // Lấy danh sách khách thuê theo mã phòng
-                if (hopDong != null)
+                MessageBox.Show("Không tìm thấy hợp đồng cho phòng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int slHoaDon = 0;
+            foreach (var item in hopDong)
+            {
+                var dsHoaDon = hoaDonServices.LayDSHoaDonTheoMaHopDong(item.MaHopDong); // Lấy danh sách hóa đơn theo mã hợp đồng
+                if (dsHoaDon != null)
                 {
-                    foreach (var item in hopDong)
+                    slHoaDon = dsHoaDon.Count(hd => hd.TrangThaiThanhToan == "Chưa thanh toán");
+                    if (slHoaDon > 0)
                     {
-                        var dsHoaDon = hoaDonServices.LayDSHoaDonTheoMaHopDong(item.MaHopDong); // Lấy danh sách hóa đơn theo mã hợp đồng
-                        if (dsHoaDon != null)
+                        DialogResult result = MessageBox.Show(
+                            $"Phòng chưa thanh toán {slHoaDon} hóa đơn! Bạn có muốn chuyển sang trang Quản Lý Hóa Đơn?",
+                            "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning
+                        );
+                        if (result == DialogResult.Yes)
                         {
-                            foreach (var hd in dsHoaDon)
-                            {
-                                if(hd.TrangThaiThanhToan == "Chưa thanh toán")
-                                {
-                                    slHoaDon++;
-                                }
-                                
-                            }
-                            if (slHoaDon > 0)
-                            {
-                                DialogResult result =  MessageBox.Show($"Phòng chưa thanh toán {slHoaDon} hóa đơn! Bạn có muốn chuyển sang trang Quản Lý Hóa Đơn", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                                if (result == DialogResult.Yes)
-                                {
-                                    frmQLyHoaDon frmQLyHoaDon = new frmQLyHoaDon();
-                                    frmQLyHoaDon.ShowDialog();
-                                }
-                            }
-                            DialogResult rst = MessageBox.Show("Bạn chắc chắn trả phòng? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                            if (rst == DialogResult.Yes)
-                            {
-                                foreach (var hd in dsHoaDon)
-                                {
-                                    hoaDonServices.XoaHoaDon(hd.MaHopDong);
-                                }
-                            }
-                            else
-                            {
-                                return;
-                            }
+                            frmQLyHoaDon frmQLyHoaDon = new frmQLyHoaDon();
+                            frmQLyHoaDon.updateData += formUpdate;
+                            frmQLyHoaDon.Show();
                         }
-                        if (listKhachThue != null)
-                        {
-                            foreach (var khachThue in listKhachThue)
-                            {
-                                hopDongServices.XoaHopDong(khachThue.MaKhachThue);
-                                khachHangServices.XoaKhachThue(khachThue.MaKhachThue);
-                            }
-                        }
-                        phongTroServices.CapNhatTinhTrangPhong(maPhong, "Trống");
-                        updateData?.Invoke();
-                        MessageBox.Show("Trả phòng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        frmTraPhong_Load(sender, e);
                     }
                 }
             }
+
+            DialogResult rst = MessageBox.Show("Bạn chắc chắn trả phòng? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rst == DialogResult.Yes)
+            {
+                foreach (var item in hopDong)
+                {
+                    var dsHoaDon = hoaDonServices.LayDSHoaDonTheoMaHopDong(item.MaHopDong);
+                    if (dsHoaDon != null)
+                    {
+                        foreach (var hd in dsHoaDon)
+                        {
+                            hoaDonServices.XoaHoaDon(hd.MaHopDong);
+                        }
+                    }
+                }
+
+                if (listKhachThue != null)
+                {
+                    foreach (var khachThue in listKhachThue)
+                    {
+                        hopDongServices.XoaHopDong(khachThue.MaKhachThue);
+                        khachHangServices.XoaKhachThue(khachThue.MaKhachThue);
+                    }
+                }
+
+                phongTroServices.CapNhatTinhTrangPhong(maPhong, "Trống");
+                updateData?.Invoke();
+                MessageBox.Show("Trả phòng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                frmTraPhong_Load(sender, EventArgs.Empty);
+            }
+        }
+
+        private void formUpdate()
+        {
+            frmTraPhong_Load(this, EventArgs.Empty);
         }
 
         private void timer1_Tick(object sender, EventArgs e)

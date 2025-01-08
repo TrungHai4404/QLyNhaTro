@@ -14,6 +14,7 @@ namespace QLyNhaTro_project
 {
     public partial class frmQLyHoaDon : Form
     {
+        public event Action updateData;
         private readonly HoaDonServices hoaDonServices = new HoaDonServices();
         public frmQLyHoaDon()
         {
@@ -54,9 +55,13 @@ namespace QLyNhaTro_project
         private void btnTaoHoaDon_Click(object sender, EventArgs e)
         {
             frmTaoHoaDon frm = new frmTaoHoaDon();
-            frm.ShowDialog();
+            frm.UpdateData += formUpdate;
+            frm.Show();
         }
-
+        private void formUpdate()
+        {
+            frmQLyHoaDon_Load(this, EventArgs.Empty);
+        }
         private void btnThoat_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -77,7 +82,7 @@ namespace QLyNhaTro_project
                         //row.Cells[6].Value = "Đã thanh toán";
                         var maHoaDon = row.Cells[0].Value.ToString();
                         var hoaDon = hoaDonServices.LayHoaDonTheoMaHoaDon(maHoaDon);
-                        
+                        updateData?.Invoke();
                         hoaDonServices.CapNhatHoaDon(hoaDon);
                     }
                     else
@@ -141,5 +146,6 @@ namespace QLyNhaTro_project
                 MessageBox.Show("Vui lòng nhập tên phòng cần tìm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
     }
 }

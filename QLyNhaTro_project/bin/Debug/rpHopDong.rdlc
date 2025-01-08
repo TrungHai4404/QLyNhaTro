@@ -1017,7 +1017,7 @@ Bên A và Bên B sau đây gọi chung là “Hai Bên” hoặc “Các Bên�
         <rd:DefaultName>Textbox7</rd:DefaultName>
         <Top>6.81611in</Top>
         <Left>0.255in</Left>
-        <Height>2.175in</Height>
+        <Height>2.79167in</Height>
         <Width>4.58333in</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -1031,7 +1031,7 @@ Bên A và Bên B sau đây gọi chung là “Hai Bên” hoặc “Các Bên�
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>9.29666in</Height>
+    <Height>9.60778in</Height>
     <Style />
   </Body>
   <Width>5.13333in</Width>

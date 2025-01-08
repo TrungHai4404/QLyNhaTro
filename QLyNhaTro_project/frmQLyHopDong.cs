@@ -112,7 +112,7 @@ namespace QLyNhaTro_project
             rpt = TruyenDuLieuHopDong(rpt);
 
             frmXuatHopDong frm = new frmXuatHopDong(rpt);
-            frm.ShowDialog();
+            frm.Show();
         }
         internal rptHopDong TruyenDuLieuHopDong(rptHopDong rpt)
         {

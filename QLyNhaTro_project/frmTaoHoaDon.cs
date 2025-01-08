@@ -14,6 +14,7 @@ namespace QLyNhaTro_project
 {
     public partial class frmTaoHoaDon : Form
     {
+        public event Action UpdateData;
         private readonly KhachHangServices khachHangServices = new KhachHangServices();
         private readonly PhongTroServices phongTroServices = new PhongTroServices();
         private readonly LoaiPhongServices loaiPhongServices = new LoaiPhongServices();
@@ -240,7 +241,7 @@ namespace QLyNhaTro_project
             };
 
             hoaDonServices.ThemHoaDon(hoaDon);
-
+            UpdateData?.Invoke();
             rptHoaDon rpt = new rptHoaDon();
             rpt = TruyenDuLieuHoaDon(rpt);
 

@@ -177,6 +177,7 @@
             this.dgvDSKhachThue.RowTemplate.Height = 24;
             this.dgvDSKhachThue.Size = new System.Drawing.Size(682, 180);
             this.dgvDSKhachThue.TabIndex = 3;
+            this.dgvDSKhachThue.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSKhachThue_CellContentClick);
             // 
             // maKhach
             // 
