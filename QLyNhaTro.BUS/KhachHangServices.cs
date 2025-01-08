@@ -19,7 +19,10 @@ namespace QLyNhaTro.BUS
 
         public List<KhachThue> GetAll()
         {
-            return db.KhachThues.ToList();
+            using (var db = new QLNTmodel()) // Tạo mới DbContext để đảm bảo kết nối độc lập
+            {
+                return db.KhachThues.ToList(); // Lấy toàn bộ dữ liệu từ bảng KhachThue
+            }
         }
         // Lấy Khách thuê theo mã phòng
         public List<KhachThue> LayKhachThueTheoMaPhong(string id)
@@ -33,12 +36,7 @@ namespace QLyNhaTro.BUS
             return db.KhachThues.Count(x => x.MaPhong == maPhong);
         }
 
-        // Thêm khách thuê
-        public void ThemKhachThue(KhachThue khachThue)
-        {
-            db.KhachThues.Add(khachThue);
-            db.SaveChanges();
-        }
+        
 
         public string TaoMaKhachThue()
         {
@@ -81,7 +79,12 @@ namespace QLyNhaTro.BUS
             return "KT" + soThuTuMoi.ToString("D2");
         }
 
-
+        // Thêm khách thuê
+        public void ThemKhachThue(KhachThue khachThue)
+        {
+            db.KhachThues.Add(khachThue);
+            db.SaveChanges();
+        }
         public void CapNhatKhachThue(KhachThue khachHang)
         {
             db.KhachThues.AddOrUpdate(khachHang);

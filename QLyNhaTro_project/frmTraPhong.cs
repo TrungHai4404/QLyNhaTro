@@ -109,7 +109,7 @@ namespace QLyNhaTro_project
                         {
                             frmQLyHoaDon frmQLyHoaDon = new frmQLyHoaDon();
                             frmQLyHoaDon.updateData += formUpdate;
-                            frmQLyHoaDon.Show();
+                            frmQLyHoaDon.ShowDialog();
                         }
                     }
                 }

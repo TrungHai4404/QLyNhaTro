@@ -186,26 +186,104 @@ namespace QLyNhaTro_project
         }
 
 
+        
+        // Sự kiện khi click vào 1 dòng trong DataGridView
+        private void dgvDSKhachThue_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var maKH = dgvDSKhachThue.Rows[e.RowIndex].Cells[1].Value.ToString();
+                var khachHang = khachHangServices.FindByID(maKH);
+                if (khachHang != null)
+                {
+                    txtHoTen.Text = khachHang.HoTen;
+                    txtCMND.Text = khachHang.CMND_CCCD;
+                    txtDiaChi.Text = khachHang.DiaChiThuongTru;
+                    txtSDT.Text = khachHang.SDT;
+                    ngaySinh.Value = khachHang.NgaySinh ?? DateTime.Now;
+                    radNam.Checked = khachHang.GioiTinh == "Nam";
+                    radNu.Checked = khachHang.GioiTinh == "Nữ";
+                    loadAVT(maKH);
+                }
+            }
+        }
+        // Kiem tra cccd/cmnd
+        private bool checkID(string id)
+        {
+            if (id.Length != 12 && id.Length != 9)
+            {
+                MessageBox.Show("Vui lòng nhập CCCD hoặc CMND", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (!System.Text.RegularExpressions.Regex.IsMatch(id, @"^\d+$"))
+            {
+                MessageBox.Show("ID chỉ là các kí tự số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        // kiem tra sdt
+        private bool checkSDT(string id)
+        {
+            if (id.Length != 10)
+            {
+                MessageBox.Show("Vui lòng nhập sdt có 10 số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (!System.Text.RegularExpressions.Regex.IsMatch(id, @"^\d+$"))
+            {
+                MessageBox.Show("SDT chỉ là các kí tự số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+        private void clearData()
+        {
+            //cmbSoPhong.SelectedValue = 0;
+            txtHoTen.Text = "";
+            txtCMND.Text = "";
+            txtSDT.Text = "";
+            txtDiaChi.Text = "";
+            radNam.Checked = true;
+            ngaySinh.Value = DateTime.Now;
+            Avatar.Image = null;
+            avtFilePath = string.Empty;
+            ngayThue.Value = DateTime.Now;
+        }
+        // Hàm kiểm tra text box
+        private bool KtraTextBox()
+        {
+            if (ngaySinh.Value > DateTime.Now)
+            {
+                MessageBox.Show("Ngày sinh không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtHoTen.Text) || string.IsNullOrEmpty(txtCMND.Text) || string.IsNullOrEmpty(txtSDT.Text) || string.IsNullOrEmpty(txtDiaChi.Text) )
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (checkID(txtCMND.Text) == false)
+                return false;
+            if (checkSDT(txtSDT.Text) == false)
+                return false;
+            return true;
+        }
         // Viết chức năng thêm khách thuê và thêm hợp đồng trong chức năng này
         private void btnThemKhachThue_Click(object sender, EventArgs e)
         {
             var selectedSoPhong = cmbSoPhong.SelectedValue?.ToString();
             var selectedLoaiPhong = cmbLoaiPhong.SelectedValue?.ToString();
-
             if (string.IsNullOrEmpty(selectedSoPhong) || string.IsNullOrEmpty(selectedLoaiPhong))
             {
                 MessageBox.Show("Vui lòng chọn phòng trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (ngaySinh.Value > DateTime.Now)
+            if (KtraTextBox() == false)
             {
-                MessageBox.Show("Ngày sinh không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (checkID(txtCMND.Text) == false)
-                return;
-            if (checkSDT(txtSDT.Text) == false)
-                return;
             int demKT = khachHangServices.DemSLKhach(selectedSoPhong); // Đếm số lượng khách thuê trong phòng
             int loaiPhong = loaiPhongServices.KiemTraLoaiPhong(selectedLoaiPhong); // Kiểm tra loại phòng (LP01 hoặc LP02)
 
@@ -233,7 +311,7 @@ namespace QLyNhaTro_project
                         khachThue.Avatar = avtFileName;
                     }
                 }
-                khachHangServices.CapNhatKhachThue(khachThue);
+                khachHangServices.ThemKhachThue(khachThue);
                 //tạo hợp đồng theo khách thuê
                 var hopDong = new HopDong
                 {
@@ -258,83 +336,8 @@ namespace QLyNhaTro_project
             {
                 MessageBox.Show("Phòng này đã đủ người. Vui lòng chọn phòng khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
-        }
-        // Sự kiện khi click vào 1 dòng trong DataGridView
-        private void dgvDSKhachThue_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                var maKH = dgvDSKhachThue.Rows[e.RowIndex].Cells[1].Value.ToString();
-                var khachHang = khachHangServices.FindByID(maKH);
-                if (khachHang != null)
-                {
-                    txtHoTen.Text = khachHang.HoTen;
-                    txtCMND.Text = khachHang.CMND_CCCD;
-                    txtDiaChi.Text = khachHang.DiaChiThuongTru;
-                    txtSDT.Text = khachHang.SDT;
-                    ngaySinh.Value = khachHang.NgaySinh ?? DateTime.Now;
-                    radNam.Checked = khachHang.GioiTinh == "Nam";
-                    radNu.Checked = khachHang.GioiTinh == "Nữ";
-                    loadAVT(maKH);
-                }
-            }
-        }
-        // Kiem tra cccd/cmnd
-        private bool checkID(string id)
-        {
-            if (string.IsNullOrEmpty(id))
-            {
-                MessageBox.Show("ID không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-            if (id.Length != 12 && id.Length != 9)
-            {
-                MessageBox.Show("Vui lòng nhập CCCD hoặc CMND", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-            if (!System.Text.RegularExpressions.Regex.IsMatch(id, @"^\d+$"))
-            {
-                MessageBox.Show("ID chỉ là các kí tự số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            return true;
-        }
 
-        // kiem tra sdt
-        private bool checkSDT(string id)
-        {
-            if (string.IsNullOrEmpty(id))
-            {
-                MessageBox.Show("SDT không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-            if (id.Length != 10)
-            {
-                MessageBox.Show("Vui lòng nhập sdt có 10 số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-            if (!System.Text.RegularExpressions.Regex.IsMatch(id, @"^\d+$"))
-            {
-                MessageBox.Show("SDT chỉ là các kí tự số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            return true;
         }
-        private void clearData()
-        {
-            //cmbSoPhong.SelectedValue = 0;
-            txtHoTen.Text = "";
-            txtCMND.Text = "";
-            txtSDT.Text = "";
-            txtDiaChi.Text = "";
-            radNam.Checked = true;
-            ngaySinh.Value = DateTime.Now;
-            Avatar.Image = null;
-            avtFilePath = string.Empty;
-            ngayThue.Value = DateTime.Now;
-        }
-
         // viết hàm cập nhật khách thuê và hop đồng
         private void btnSua_Click(object sender, EventArgs e)
         {
@@ -343,6 +346,10 @@ namespace QLyNhaTro_project
                 var selectedRow = dgvDSKhachThue.SelectedRows[0];
                 var maKH = selectedRow.Cells[1].Value.ToString();
                 var khachHang = khachHangServices.FindByID(maKH);
+                if (KtraTextBox() == false)
+                {
+                    return;
+                }
                 if (khachHang != null)
                 {
                     khachHang.HoTen = txtHoTen.Text;
@@ -351,7 +358,6 @@ namespace QLyNhaTro_project
                     khachHang.SDT = txtSDT.Text;
                     khachHang.NgaySinh = ngaySinh.Value;
                     khachHang.NgayBatDauThue = ngayThue.Value;
-                    khachHang.NgaySinh = ngaySinh.Value;
                     khachHang.GioiTinh = radNam.Checked ? "Nam" : "Nữ";
 
                     // Kiem tra file co duoc chon k
@@ -363,19 +369,18 @@ namespace QLyNhaTro_project
                             khachHang.Avatar = avtFileName;
                         }
                     }
-
                     khachHangServices.CapNhatKhachThue(khachHang);
-
                     var hopDong = hopDongServices.FindByID(khachHang.MaKhachThue);
                     hopDongServices.CapNhatHopDong(hopDong.MaHopDong, khachHang.NgayBatDauThue);
-
                     MessageBox.Show("Cập nhật thông tin khách thuê thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     var khachThueMoi = khachHangServices.LayKhachThueTheoMaPhong(khachHang.MaPhong);
                     bindGrid(khachThueMoi);
-                    DataUpdate?.Invoke();
+                    
                     clearData();
                 }
             }
+            // Cập nhật form trang chủ
+            DataUpdate?.Invoke();
         }
         // Viết sự kiện xóa khách thuê
         private void btnXoa_Click(object sender, EventArgs e)
@@ -392,7 +397,7 @@ namespace QLyNhaTro_project
                 {
                     phongTroServices.CapNhatTinhTrangPhong(selectedSoPhong, "Trống");
                 }
-                bindGrid(khachHangServices.LayKhachThueTheoMaPhong(selectedSoPhong));
+                bindGrid(khachHangServices.GetAll());
                 DataUpdate?.Invoke();
                 clearData();
                 MessageBox.Show("Xóa khách thuê thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

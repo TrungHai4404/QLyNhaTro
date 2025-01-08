@@ -43,7 +43,12 @@ namespace QLyNhaTro_project
         //Cap nhat Du lieu
         private void formUpdate()
         {
-            frmTrangChu_Load(this, EventArgs.Empty); // Corrected line
+            
+            var khachHang = khachHangServices.GetAll();
+            bindGrid(khachHang);
+            gbThongTinNhaTro();
+            
+
         }
         // đổ dữ liệu vào group box phòng đã thuê
         private void DuLieuLoaiPhongThue(List<LoaiPhong> LoaiPhong)
@@ -217,7 +222,10 @@ namespace QLyNhaTro_project
 
         private void quảnLýKháchThuêToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tsQLKhachThue_Click(sender, e);
+            frmQLyKhach frm = new frmQLyKhach();
+            frm.DataUpdate += formUpdate;
+            frm.Show();
+            
         }
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
         {
